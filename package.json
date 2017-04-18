@@ -31,10 +31,12 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "d3": "^4.7.0",
-    "d3-binarytree": "^0.1",
+    "aframe": "^0.5",
+    "d3": "^4.8",
+    "d3-binarytree": "~0.1",
     "d3-force-3d": "^1.0",
-    "d3-octree": "^0.1",
+    "d3-octree": "~0.1",
+    "lodash": "^4.17.4",
     "three": "~0.84"
   },
   "devDependencies": {
