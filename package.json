@@ -1,0 +1,51 @@
+{
+  "name": "3d-force-graph-vr",
+  "version": "0.1.0",
+  "description": "UI component for a 3D force-directed graph in VR",
+  "main": "dist/3d-force-graph-vr.js",
+  "jsnext:main": "src/index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasturiano/3d-force-graph-vr.git"
+  },
+  "homepage": "https://github.com/vasturiano/3d-force-graph-vr",
+  "keywords": [
+    "3d",
+    "force",
+    "graph",
+    "vr",
+    "aframe",
+    "d3"
+  ],
+  "author": {
+    "name": "Vasco Asturiano",
+    "url": "http://bl.ocks.org/vasturiano"
+  },
+  "bugs": {
+    "url": "https://github.com/vasturiano/3d-force-graph-vr/issues"
+  },
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && rollup -c --banner \"$(preamble)\"",
+    "watch": "rollup -c -w",
+    "minify": "uglifyjs dist/3d-force-graph-vr.js -o dist/3d-force-graph-vr.min.js -c -m --preamble \"$(preamble)\"",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "d3": "^4.7.0",
+    "d3-binarytree": "^0.1",
+    "d3-force-3d": "^1.0",
+    "d3-octree": "^0.1",
+    "three": "~0.84"
+  },
+  "devDependencies": {
+    "package-preamble": "^0.0.2",
+    "postcss-nested": "^1.0",
+    "postcss-simple-vars": "^3.0",
+    "rollup": "^0.36",
+    "rollup-plugin-commonjs": "^5.0",
+    "rollup-plugin-node-resolve": "^2.0",
+    "rollup-plugin-postcss": "^0.2",
+    "rollup-watch": "^2.5",
+    "uglify-js": "^2.7"
+  }
+}
