@@ -51,6 +51,8 @@ export default function() {
 		// Add scene
 		env.scene = d3.select(env.domNode).append('a-scene');
 
+		env.scene.append('a-sky').attr('color', '#002');
+
 		// Add force-directed layout
 		env.forceLayout = d3.forceSimulation()
 			.force('link', d3.forceLink().id(d => d._id))
