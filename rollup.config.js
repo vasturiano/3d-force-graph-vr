@@ -7,6 +7,7 @@ import postCssNested from 'postcss-nested';
 export default {
     entry: 'src/index.js',
     dest: 'dist/3d-force-graph-vr.js',
+    useStrict: false, // a-frame 0.5 not 'strict' compatible
     format: 'umd',
     moduleName: 'ForceGraphVR',
     plugins: [
