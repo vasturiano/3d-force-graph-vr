@@ -160,8 +160,8 @@ export default function() {
 
 		nodes.enter()
 			.append('a-sphere')
-			.attr('radius', d => Math.cbrt(env.valAccessor(node) || 1) * env.nodeRelSize)
-			.attr('color', d => env.colorAccessor(d) || '#ffffaa');
+				.attr('radius', d => Math.cbrt(env.valAccessor(d) || 1) * env.nodeRelSize)
+				.attr('color', d => '#' + (env.colorAccessor(d) || 0xffffaa).toString(16));
 
 		/*
 		// Add WebGL objects
