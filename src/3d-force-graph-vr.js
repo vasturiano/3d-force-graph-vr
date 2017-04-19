@@ -158,6 +158,8 @@ export default function() {
 		let nodes = env.scene.selectAll('a-sphere')
 			.data(d3Nodes, d => d._id);
 
+		nodes.exit().remove();
+
 		nodes= nodes.merge(
 			nodes.enter()
 				.append('a-sphere')
