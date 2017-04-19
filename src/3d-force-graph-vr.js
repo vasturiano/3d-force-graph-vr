@@ -1,6 +1,7 @@
 import './3d-force-graph-vr.css';
 
 import 'aframe';
+import 'aframe-line-component';
 
 import * as d3Core from 'd3';
 import * as d3Force from 'd3-force-3d';
@@ -151,20 +152,33 @@ export default function() {
 			d3Nodes.push(node);
 		}
 		const d3Links = env.graphData.links.map(link => {
-			return { source: link[0], target: link[1] };
+			return { _id: link.join('>'), source: link[0], target: link[1] };
 		});
 		if (!d3Nodes.length) { return; }
 
-		let nodes = env.scene.selectAll('a-sphere')
+		// Add A-frame objects
+		let nodes = env.scene.selectAll('a-sphere.node')
 			.data(d3Nodes, d => d._id);
 
 		nodes.exit().remove();
 
-		nodes= nodes.merge(
+		nodes = nodes.merge(
 			nodes.enter()
 				.append('a-sphere')
+					.classed('node', true)
 					.attr('radius', d => Math.cbrt(env.valAccessor(d) || 1) * env.nodeRelSize)
 					.attr('color', d => '#' + (env.colorAccessor(d) || 0xffffaa).toString(16))
+		);
+
+		let links = env.scene.selectAll('a-entity.link')
+			.data(d3Links, d => d._id);
+
+		links.exit().remove();
+
+		links = links.merge(
+			links.enter()
+				.append('a-entity')
+					.classed('link', true)
 		);
 
 		/*
@@ -247,7 +261,10 @@ export default function() {
 			}
 
 			// Update nodes position
-			nodes.attr('position', d => `${d.x} ${d.y} ${d.z}`);
+			nodes.attr('position', d => `${d.x} ${d.y || 0} ${d.z || 0}`);
+
+			//Update links position
+			links.attr('line', d => `start: ${d.source.x} ${d.source.y || 0} ${d.source.z || 0};  end: ${d.target.x} ${d.target.y || 0} ${d.target.z || 0}; color: #f0f0f0`);
 
 			/*
 			// Update nodes position
