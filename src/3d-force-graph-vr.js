@@ -158,10 +158,12 @@ export default function() {
 		let nodes = env.scene.selectAll('a-sphere')
 			.data(d3Nodes, d => d._id);
 
-		nodes.enter()
-			.append('a-sphere')
-				.attr('radius', d => Math.cbrt(env.valAccessor(d) || 1) * env.nodeRelSize)
-				.attr('color', d => '#' + (env.colorAccessor(d) || 0xffffaa).toString(16));
+		nodes= nodes.merge(
+			nodes.enter()
+				.append('a-sphere')
+					.attr('radius', d => Math.cbrt(env.valAccessor(d) || 1) * env.nodeRelSize)
+					.attr('color', d => '#' + (env.colorAccessor(d) || 0xffffaa).toString(16))
+		);
 
 		/*
 		// Add WebGL objects
@@ -215,10 +217,10 @@ export default function() {
 		*/
 
 		env.forceLayout
+			.stop()
 			.numDimensions(env.numDimensions)
 			.nodes(d3Nodes)
-			.force('link').links(d3Links)
-			.stop();
+			.force('link').links(d3Links);
 
 		for (let i=0; i<env.warmUpTicks; i++) { env.forceLayout.tick(); } // Initial ticks before starting to render
 
@@ -237,6 +239,7 @@ export default function() {
 		}
 
 		function layoutTick() {
+
 			if (cntTicks++ > env.coolDownTicks || (new Date()) - startTickTime > env.coolDownTime) {
 				env.forceLayout.stop(); // Stop ticking graph
 			}
