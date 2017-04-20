@@ -11,8 +11,6 @@ extend(d3, d3Core, d3Force);
 
 export default function() {
 
-	const CAMERA_DISTANCE2NODES_FACTOR = 150;
-
 	class CompProp {
 		constructor(name, initVal = null, redigest = true, onChange = newVal => {}) {
 			this.name = name;
@@ -59,10 +57,11 @@ export default function() {
 
 		// Add camera and cursor
 		const camera = env.scene.append('a-entity')
-			//.attr('position', '0 0 300')
+			.attr('position', '0 0 300')
 			.append('a-camera')
 				.attr('user-height', '0')
-				.attr('reverse-mouse-drag', true);
+				.attr('reverse-mouse-drag', true)
+				.attr('wasd-controls', 'fly: true; acceleration: 3000');
 
 		camera.append('a-cursor')
 			.attr('color', 'lavender')
@@ -83,70 +82,7 @@ export default function() {
 			.force('center', d3.forceCenter())
 			.stop();
 
-		/*
-		// Capture mouse coords on move
-		env.raycaster = new THREE.Raycaster();
-		env.mouse = new THREE.Vector2();
-		env.mouse.x = -2; // Initialize off canvas
-		env.mouse.y = -2;
-		env.domNode.addEventListener("mousemove", ev => {
-			// update the mouse pos
-			const offset = getOffset(env.domNode),
-				relPos = {
-					x: ev.pageX - offset.left,
-					y: ev.pageY - offset.top
-				};
-			env.mouse.x = (relPos.x / env.width) * 2 - 1;
-			env.mouse.y = -(relPos.y / env.height) * 2 + 1;
-
-			// Move tooltip
-			env.toolTipElem.style.top = (relPos.y - 40) + 'px';
-			env.toolTipElem.style.left = (relPos.x - 20) + 'px';
-
-			function getOffset(el) {
-				const rect = el.getBoundingClientRect(),
-					scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-					scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-				return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
-			}
-		}, false);
-		*/
-
-		/*
-		// Setup camera
-		env.camera = new THREE.PerspectiveCamera();
-		env.camera.far = 20000;
-		env.camera.position.z = 1000;
-
-		// Setup scene
-		env.scene = new THREE.Scene();
-
-		// Setup renderer
-		env.renderer = new THREE.WebGLRenderer();
-		env.domNode.appendChild(env.renderer.domElement);
-
-		// Add camera interaction
-		env.controls = new THREE.TrackballControls(env.camera, env.renderer.domElement);
-		*/
-
 		env.initialised = true;
-
-		//
-
-		/*
-		// Kick-off renderer
-		(function animate() { // IIFE
-			// Update tooltip
-			env.raycaster.setFromCamera(env.mouse, env.camera);
-			const intersects = env.raycaster.intersectObjects(env.scene.children);
-			env.toolTipElem.innerHTML = intersects.length ? intersects[0].object.name || '' : '';
-
-			// Frame cycle
-			env.controls.update();
-			env.renderer.render(env.scene, env.camera);
-			requestAnimationFrame(animate);
-		})()
-		*/
 	}
 
 	function digest() {
