@@ -139,6 +139,7 @@ export default function() {
 		// Feed data to force-directed layout
 		env.forceLayout
 			.stop()
+			.alpha(1)// re-heat the simulation
 			.numDimensions(env.numDimensions)
 			.nodes(d3Nodes)
 			.force('link').links(d3Links);
