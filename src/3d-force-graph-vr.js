@@ -56,7 +56,8 @@ export default function() {
 		const camera = env.scene.append('a-entity')
 			//.attr('position', '0 0 300')
 			.append('a-camera')
-				.attr('user-height', '0');
+				.attr('user-height', '0')
+				.attr('reverse-mouse-drag', true);
 
 		camera.append('a-cursor')
 			.attr('color', 'lavender')
