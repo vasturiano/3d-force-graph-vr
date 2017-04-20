@@ -1,7 +1,7 @@
 # 3D Force-Directed Graph in VR
 
 <p align="center">
-     <a href="http://bl.ocks.org/vasturiano/02affe306ce445e423f992faeea13521"><img width="80%" src="http://gist.github.com/vasturiano/02affe306ce445e423f992faeea13521/raw/preview.png"></a>
+     <a href="https://bl.ocks.org/vasturiano/972ca4f3e8e074dacf14d7071aad8ef9"><img width="80%" src="http://gist.github.com/vasturiano/02affe306ce445e423f992faeea13521/raw/preview.png"></a>
 </p>
 
 A web component to represent a graph data structure in virtual reality using a force-directed iterative layout.
