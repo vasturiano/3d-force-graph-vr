@@ -50,8 +50,19 @@ export default function() {
 
 		// Add scene
 		env.scene = d3.select(env.domNode).append('a-scene');
-
 		env.scene.append('a-sky').attr('color', '#002');
+
+		// Add camera
+		const camera = env.scene.append('a-entity').append('a-camera')
+			.attr('position', '0 0 300');
+
+		// Setup tooltip (attached to camera)
+		env.tooltipElem = camera.append('a-text')
+			.attr('position', '0 -0.75 -1') // Aligned to canvas bottom
+			.attr('width', 2)
+			.attr('align', 'center')
+			.attr('color', 'lavender')
+			.attr('value', '');
 
 		// Add force-directed layout
 		env.forceLayout = d3.forceSimulation()
@@ -66,13 +77,6 @@ export default function() {
 		navInfo.classList.add('graph-nav-info');
 		navInfo.innerHTML = "MOVE mouse &amp; press LEFT/A: rotate, MIDDLE/S: zoom, RIGHT/D: pan";
 		env.domNode.appendChild(navInfo);
-		*/
-
-		/*
-		// Setup tooltip
-		env.toolTipElem = document.createElement('div');
-		env.toolTipElem.classList.add('graph-tooltip');
-		env.domNode.appendChild(env.toolTipElem);
 		*/
 
 		/*
