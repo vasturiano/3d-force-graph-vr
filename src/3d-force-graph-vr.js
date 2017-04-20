@@ -53,8 +53,8 @@ export default function() {
 		env.scene.append('a-sky').attr('color', '#002');
 
 		// Add camera
-		const camera = env.scene.append('a-entity').append('a-camera')
-			.attr('position', '0 0 300');
+		const camera = env.scene.append('a-entity').append('a-camera');
+			//.attr('position', '0 0 300');
 
 		// Setup tooltip (attached to camera)
 		env.tooltipElem = camera.append('a-text')
@@ -174,6 +174,13 @@ export default function() {
 					.classed('node', true)
 					.attr('radius', d => Math.cbrt(env.valAccessor(d) || 1) * env.nodeRelSize)
 					.attr('color', d => '#' + (env.colorAccessor(d) || 0xffffaa).toString(16))
+					.attr('opacity', 0.75)
+					.on('mouseenter', d => {
+						env.tooltipNode.attr('value', env.nameAccessor(d) || '');
+					})
+					.on('mouseleave', () => {
+						env.tooltipNode.attr('value', '');
+					})
 		);
 
 		let links = env.scene.selectAll('a-entity.link')
@@ -185,6 +192,7 @@ export default function() {
 			links.enter()
 				.append('a-entity')
 					.classed('link', true)
+					.attr('opacity', 0.1)
 		);
 
 		/*
