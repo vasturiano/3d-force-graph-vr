@@ -1,7 +1,8 @@
 import './3d-force-graph-vr.css';
 
 import 'aframe';
-import 'aframe-line-component';
+//import 'aframe-line-component';
+import './aframe-line-component';
 
 import * as d3Core from 'd3';
 import * as d3Force from 'd3-force-3d';
@@ -132,7 +133,7 @@ export default function() {
 			links.enter()
 				.append('a-entity')
 					.classed('link', true)
-					//.attr('opacity', env.lineOpacity)
+					.attr('line', `color: #f0f0f0; opacity: ${env.lineOpacity}`)
 		);
 
 		// Feed data to force-directed layout
@@ -159,7 +160,7 @@ export default function() {
 			nodes.attr('position', d => `${d.x} ${d.y || 0} ${d.z || 0}`);
 
 			//Update links position
-			links.attr('line', d => `start: ${d.source.x} ${d.source.y || 0} ${d.source.z || 0};  end: ${d.target.x} ${d.target.y || 0} ${d.target.z || 0}; color: #f0f0f0`);
+			links.attr('line', d => `start: ${d.source.x} ${d.source.y || 0} ${d.source.z || 0};  end: ${d.target.x} ${d.target.y || 0} ${d.target.z || 0}`);
 		}
 	}
 
