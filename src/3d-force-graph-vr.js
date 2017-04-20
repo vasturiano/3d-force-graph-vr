@@ -52,9 +52,13 @@ export default function() {
 		env.scene = d3.select(env.domNode).append('a-scene');
 		env.scene.append('a-sky').attr('color', '#002');
 
-		// Add camera
+		// Add camera and cursor
 		const camera = env.scene.append('a-entity').append('a-camera');
 			//.attr('position', '0 0 300');
+
+		camera.append('a-cursor')
+			.attr('color', 'lavender')
+			.attr('opacity', 0.5);
 
 		// Setup tooltip (attached to camera)
 		env.tooltipElem = camera.append('a-text')
@@ -176,10 +180,10 @@ export default function() {
 					.attr('color', d => '#' + (env.colorAccessor(d) || 0xffffaa).toString(16))
 					.attr('opacity', 0.75)
 					.on('mouseenter', d => {
-						env.tooltipNode.attr('value', env.nameAccessor(d) || '');
+						env.tooltipElem.attr('value', env.nameAccessor(d) || '');
 					})
 					.on('mouseleave', () => {
-						env.tooltipNode.attr('value', '');
+						env.tooltipElem.attr('value', '');
 					})
 		);
 
