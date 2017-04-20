@@ -9,7 +9,7 @@ Uses [A-Frame](https://aframe.io/) for VR rendering and [d3-force-3d](https://gi
 
 See also the [WebGL 3D version](https://github.com/vasturiano/3d-force-graph).
 
-Live example: http://bl.ocks.org/vasturiano/02affe306ce445e423f992faeea13521
+Live example: https://bl.ocks.org/vasturiano/972ca4f3e8e074dacf14d7071aad8ef9
 
 [![NPM](https://nodei.co/npm/3d-force-graph-vr.png?compact=true)](https://nodei.co/npm/3d-force-graph-vr/)
 
