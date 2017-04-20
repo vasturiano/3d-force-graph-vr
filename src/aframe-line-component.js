@@ -44,6 +44,7 @@ AFRAME.registerComponent('line', {
       pos[4] = data.end.y;
       pos[5] = data.end.z;
       this.geometry.attributes.position.needsUpdate = true;
+      this.geometry.computeBoundingSphere();
     }
 
     this.material.color.setStyle(data.color);
