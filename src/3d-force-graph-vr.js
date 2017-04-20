@@ -53,8 +53,10 @@ export default function() {
 		env.scene.append('a-sky').attr('color', '#002');
 
 		// Add camera and cursor
-		const camera = env.scene.append('a-entity').append('a-camera');
-			//.attr('position', '0 0 300');
+		const camera = env.scene.append('a-entity')
+			//.attr('position', '0 0 300')
+			.append('a-camera')
+				.attr('user-height', '0');
 
 		camera.append('a-cursor')
 			.attr('color', 'lavender')
@@ -196,7 +198,7 @@ export default function() {
 			links.enter()
 				.append('a-entity')
 					.classed('link', true)
-					.attr('opacity', 0.1)
+					//.attr('opacity', env.lineOpacity)
 		);
 
 		/*
