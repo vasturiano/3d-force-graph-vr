@@ -48,6 +48,11 @@ export default function() {
 		// Wipe DOM
 		env.domNode.innerHTML = '';
 
+		// Add nav info section
+		d3.select(env.domNode).append('div')
+			.classed('graph-nav-info', true)
+			.text('Mouse drag: look, arrow/wasd keys: move');
+
 		// Add scene
 		env.scene = d3.select(env.domNode).append('a-scene');
 		env.scene.append('a-sky').attr('color', '#002');
@@ -65,7 +70,7 @@ export default function() {
 
 		// Setup tooltip (attached to camera)
 		env.tooltipElem = camera.append('a-text')
-			.attr('position', '0 -0.75 -1') // Aligned to canvas bottom
+			.attr('position', '0 -0.7 -1') // Aligned to canvas bottom
 			.attr('width', 2)
 			.attr('align', 'center')
 			.attr('color', 'lavender')
@@ -77,14 +82,6 @@ export default function() {
 			.force('charge', d3.forceManyBody())
 			.force('center', d3.forceCenter())
 			.stop();
-
-		/*
-		// Add nav info section
-		const navInfo = document.createElement('div');
-		navInfo.classList.add('graph-nav-info');
-		navInfo.innerHTML = "MOVE mouse &amp; press LEFT/A: rotate, MIDDLE/S: zoom, RIGHT/D: pan";
-		env.domNode.appendChild(navInfo);
-		*/
 
 		/*
 		// Capture mouse coords on move
