@@ -88,8 +88,6 @@ export default function() {
 	function digest() {
 		if (!env.initialised) { return }
 
-		resizeCanvas();
-
 		// Build graph with data
 		const d3Nodes = [];
 		for (let nodeId in env.graphData.nodes) { // Turn nodes into array
@@ -112,6 +110,8 @@ export default function() {
 			nodes.enter()
 				.append('a-sphere')
 					.classed('node', true)
+					.attr('segments-width', 8)	// Lower geometry resolution to improve perf
+					.attr('segments-height', 8)
 					.attr('radius', d => Math.cbrt(env.valAccessor(d) || 1) * env.nodeRelSize)
 					.attr('color', d => '#' + (env.colorAccessor(d) || 0xffffaa).toString(16))
 					.attr('opacity', 0.75)
@@ -135,57 +135,7 @@ export default function() {
 					//.attr('opacity', env.lineOpacity)
 		);
 
-		/*
-		// Add WebGL objects
-		d3Nodes.forEach(node => {
-			const nodeMaterial = new THREE.MeshBasicMaterial({ color: env.colorAccessor(node) || 0xffffaa, transparent: true });
-			nodeMaterial.opacity = 0.75;
-
-			const sphere = new THREE.Mesh(
-				new THREE.SphereGeometry(Math.cbrt(env.valAccessor(node) || 1) * env.nodeRelSize, 8, 8),
-				nodeMaterial
-			);
-			sphere.name = env.nameAccessor(node) || '';
-
-			env.scene.add(node._sphere = sphere)
-		});
-		*/
-
-		/*
-		const lineMaterial = new THREE.MeshBasicMaterial({ color: 0xf0f0f0, transparent: true });
-		lineMaterial.opacity = env.lineOpacity;
-		d3Links.forEach(link => {
-			const line = new THREE.Line(new THREE.Geometry(), lineMaterial);
-			line.geometry.vertices=[new THREE.Vector3(0,0,0), new THREE.Vector3(0,0,0)];
-
-			const fromName = getNodeName(link.source),
-				toName = getNodeName(link.target);
-			if (fromName && toName) { line.name = `${fromName} > ${toName}`; }
-
-			env.scene.add(link._line = line);
-
-			function getNodeName(nodeId) {
-				return env.nameAccessor(env.graphData.nodes[nodeId]);
-			}
-		});
-		*/
-
-		/*
-		env.camera.lookAt(env.scene.position);
-		env.camera.position.z = Math.cbrt(d3Nodes.length) * CAMERA_DISTANCE2NODES_FACTOR;
-		*/
-
-		/*
-		// Add force-directed layout
-		const layout = d3.forceSimulation()
-			.numDimensions(env.numDimensions)
-			.nodes(d3Nodes)
-			.force('link', d3.forceLink().id(d => d._id).links(d3Links))
-			.force('charge', d3.forceManyBody())
-			.force('center', d3.forceCenter())
-			.stop();
-		*/
-
+		// Feed data to force-directed layout
 		env.forceLayout
 			.stop()
 			.numDimensions(env.numDimensions)
@@ -200,16 +150,7 @@ export default function() {
 
 		//
 
-		function resizeCanvas() {
-			if (env.width && env.height) {
-				//env.renderer.setSize(env.width, env.height);
-				//env.camera.aspect = env.width/env.height;
-				//env.camera.updateProjectionMatrix();
-			}
-		}
-
 		function layoutTick() {
-
 			if (cntTicks++ > env.coolDownTicks || (new Date()) - startTickTime > env.coolDownTime) {
 				env.forceLayout.stop(); // Stop ticking graph
 			}
@@ -219,31 +160,6 @@ export default function() {
 
 			//Update links position
 			links.attr('line', d => `start: ${d.source.x} ${d.source.y || 0} ${d.source.z || 0};  end: ${d.target.x} ${d.target.y || 0} ${d.target.z || 0}; color: #f0f0f0`);
-
-			/*
-			// Update nodes position
-			d3Nodes.forEach(node => {
-				const sphere = node._sphere;
-				sphere.position.x = node.x;
-				sphere.position.y = node.y || 0;
-				sphere.position.z = node.z || 0;
-			});
-			*/
-
-			/*
-			// Update links position
-			d3Links.forEach(link => {
-				const line = link._line;
-
-				line.geometry.vertices = [
-					new THREE.Vector3(link.source.x, link.source.y || 0, link.source.z || 0),
-					new THREE.Vector3(link.target.x, link.target.y || 0, link.target.z || 0)
-				];
-
-				line.geometry.verticesNeedUpdate = true;
-				line.geometry.computeBoundingSphere();
-			});
-			*/
 		}
 	}
 
