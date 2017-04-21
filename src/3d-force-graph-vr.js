@@ -46,7 +46,7 @@ export default SWC.createComponent({
 			.text('Mouse drag: look, arrow/wasd keys: move');
 
 		// Add scene
-		state.scene = d3.select(domNode).append('a-scene');
+		state.scene = d3.select(domNode).append('a-scene'); //.attr('stats', '');
 		state.scene.append('a-sky').attr('color', '#002');
 
 		// Add camera and cursor
