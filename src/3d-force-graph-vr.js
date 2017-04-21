@@ -31,7 +31,9 @@ export default SWC.createComponent({
 		new SWC.Prop('colorAccessor', node => node.color),
 		new SWC.Prop('warmUpTicks', 0), // how many times to tick the force engine at init before starting to render
 		new SWC.Prop('coolDownTicks', Infinity),
-		new SWC.Prop('coolDownTime', 15000) // ms
+		new SWC.Prop('coolDownTime', 15000), // ms
+		new SWC.Prop('alphaDecay', 0.0228), // cool-down curve
+		new SWC.Prop('velocityDecay', 0.4) // atmospheric friction
 	],
 
 	init: (domNode, state) => {
@@ -127,6 +129,8 @@ export default SWC.createComponent({
 		state.forceLayout
 			.stop()
 			.alpha(1)// re-heat the simulation
+			.alphaDecay(state.alphaDecay)
+			.velocityDecay(state.velocityDecay)
 			.numDimensions(state.numDimensions)
 			.nodes(d3Nodes)
 			.force('link').links(d3Links);
