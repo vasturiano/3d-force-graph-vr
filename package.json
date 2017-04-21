@@ -38,8 +38,7 @@
     "d3-force-3d": "^1.0",
     "d3-octree": "^0.1",
     "lodash": "^4.17.4",
-    "swc": "^0.1",
-    "three": "~0.84"
+    "swc": "^0.1"
   },
   "devDependencies": {
     "package-preamble": "^0.0.2",
