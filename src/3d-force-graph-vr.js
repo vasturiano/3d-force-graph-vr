@@ -88,7 +88,6 @@ export default SWC.createComponent({
 		const d3Links = state.graphData.links.map(link => {
 			return { _id: link.join('>'), source: link[0], target: link[1] };
 		});
-		if (!d3Nodes.length) { return; }
 
 		// Add A-frame objects
 		let nodes = state.scene.selectAll('a-sphere.node')
