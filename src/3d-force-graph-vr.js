@@ -1,8 +1,7 @@
 import './3d-force-graph-vr.css';
 
 import 'aframe';
-//import 'aframe-line-component';
-import './aframe-line-component';
+import 'aframe-line-component';
 
 import * as d3Core from 'd3';
 import * as d3Force from 'd3-force-3d';
