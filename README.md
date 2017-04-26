@@ -43,8 +43,6 @@ myGraph(<myDOMElement>);
 
 ```
 ForceGraphVR()
-     .width(<px>)
-     .height(<px>)
      .graphData(<data>)
      .nodeRelSize(<(number) node volume per value unit>)
      .lineOpacity(<between [0,1]>)

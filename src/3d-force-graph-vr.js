@@ -16,8 +16,6 @@ import * as SWC from 'swc';
 export default SWC.createComponent({
 
 	props: [
-		new SWC.Prop('width', window.innerWidth),
-		new SWC.Prop('height', window.innerHeight),
 		new SWC.Prop('graphData', {
 			nodes: {},
 			links: [] // [from, to]
