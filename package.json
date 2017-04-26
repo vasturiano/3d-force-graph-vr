@@ -1,6 +1,6 @@
 {
   "name": "3d-force-graph-vr",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "UI component for a 3D force-directed graph in VR",
   "main": "dist/3d-force-graph-vr.js",
   "jsnext:main": "src/index",
