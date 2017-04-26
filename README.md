@@ -7,7 +7,7 @@
 A web component to represent a graph data structure in virtual reality using a force-directed iterative layout.
 Uses [A-Frame](https://aframe.io/) for VR rendering and [d3-force-3d](https://github.com/vasturiano/d3-force-3d) for the layout physics engine.
 
-See also the [WebGL 3D version](https://github.com/vasturiano/3d-force-graph).
+See also the [WebGL 3D version](https://github.com/vasturiano/3d-force-graph), and the [A-Frame component version (aframe-forcegraph-component)](https://github.com/vasturiano/aframe-forcegraph-component).
 
 Live example: https://bl.ocks.org/vasturiano/972ca4f3e8e074dacf14d7071aad8ef9
 
