@@ -1,13 +1,7 @@
 import './3d-force-graph-vr.css';
 
 import 'aframe';
-import 'aframe-line-component';
-
-import * as d3Core from 'd3';
-import * as d3Force from 'd3-force-3d';
-import { default as extend } from 'lodash/assign';
-let d3 = {};
-extend(d3, d3Core, d3Force);
+import 'aframe-forcegraph-component';
 
 import * as SWC from 'swc';
 
@@ -16,21 +10,24 @@ import * as SWC from 'swc';
 export default SWC.createComponent({
 
 	props: [
+		new SWC.Prop('jsonUrl'),
 		new SWC.Prop('graphData', {
-			nodes: {},
-			links: [] // [from, to]
+			nodes: [],
+			links: []
 		}),
 		new SWC.Prop('numDimensions', 3),
 		new SWC.Prop('nodeRelSize', 4), // volume per val unit
 		new SWC.Prop('lineOpacity', 0.2),
-		new SWC.Prop('valAccessor', node => node.val),
-		new SWC.Prop('nameAccessor', node => node.name),
-		new SWC.Prop('colorAccessor', node => node.color),
-		new SWC.Prop('warmUpTicks', 0), // how many times to tick the force engine at init before starting to render
-		new SWC.Prop('coolDownTicks', Infinity),
-		new SWC.Prop('coolDownTime', 15000), // ms
-		new SWC.Prop('alphaDecay', 0.0228), // cool-down curve
-		new SWC.Prop('velocityDecay', 0.4) // atmospheric friction
+		new SWC.Prop('autoColorBy'),
+		new SWC.Prop('idField', 'id'),
+		new SWC.Prop('valField', 'val'),
+		new SWC.Prop('nameField', 'name'),
+		new SWC.Prop('colorField', 'color'),
+		new SWC.Prop('linkSourceField', 'source'),
+		new SWC.Prop('linkTargetField', 'target'),
+		new SWC.Prop('warmupTicks', 0), // how many times to tick the force engine at init before starting to render
+		new SWC.Prop('cooldownTicks', Infinity),
+		new SWC.Prop('cooldownTime', 15000) // ms
 	],
 
 	init: (domNode, state) => {
@@ -38,117 +35,69 @@ export default SWC.createComponent({
 		domNode.innerHTML = '';
 
 		// Add nav info section
-		d3.select(domNode).append('div')
-			.classed('graph-nav-info', true)
-			.text('Mouse drag: look, arrow/wasd keys: move');
+		let navInfo;
+		domNode.appendChild(navInfo = document.createElement('div'));
+		navInfo.className = 'graph-nav-info';
+		navInfo.textContent = 'Mouse drag: look, arrow/wasd keys: move';
 
 		// Add scene
-		state.scene = d3.select(domNode).append('a-scene'); //.attr('stats', '');
-		state.scene.append('a-sky').attr('color', '#002');
+		let scene;
+		domNode.appendChild(scene = document.createElement('a-scene'));
+		//scene.setAttribute('stats', null);
+		let sky;
+		scene.appendChild(sky = document.createElement('a-sky'));
+		sky.setAttribute('color', '#002');
 
 		// Add camera and cursor
-		const camera = state.scene.append('a-entity')
-			.attr('position', '0 0 300')
-			.append('a-camera')
-			.attr('user-height', '0')
-			.attr('reverse-mouse-drag', true)
-			.attr('wasd-controls', 'fly: true; acceleration: 3000');
+		let cameraG;
+		scene.appendChild(cameraG = document.createElement('a-entity'));
+		cameraG.setAttribute('position', '0 0 300');
 
-		camera.append('a-cursor')
-			.attr('color', 'lavender')
-			.attr('opacity', 0.5);
+		let camera;
+		cameraG.appendChild(camera = document.createElement('a-camera'));
+		camera.setAttribute('user-height', '0');
+		camera.setAttribute('reverse-mouse-drag', true);
+		camera.setAttribute('wasd-controls', 'fly: true; acceleration: 3000');
 
-		// Setup tooltip (attached to camera)
-		state.tooltipElem = camera.append('a-text')
-			.attr('position', '0 -0.7 -1') // Aligned to canvas bottom
-			.attr('width', 2)
-			.attr('align', 'center')
-			.attr('color', 'lavender')
-			.attr('value', '');
+		let cursor;
+		camera.appendChild(cursor = document.createElement('a-cursor'));
+		cursor.setAttribute('color', 'lavender');
+		cursor.setAttribute('opacity', 0.5);
 
-		// Add force-directed layout
-		state.forceLayout = d3.forceSimulation()
-			.force('link', d3.forceLink().id(d => d._id))
-			.force('charge', d3.forceManyBody())
-			.force('center', d3.forceCenter())
-			.stop();
+		// Add forcegraph entity
+		scene.appendChild(state.forcegraph = document.createElement('a-entity'));
+		state.forcegraph.setAttribute('forcegraph', null);
 	},
 
 	update: state => {
-		// Build graph with data
-		const d3Nodes = [];
-		for (let nodeId in state.graphData.nodes) { // Turn nodes into array
-			const node = state.graphData.nodes[nodeId];
-			node._id = nodeId;
-			d3Nodes.push(node);
-		}
-		const d3Links = state.graphData.links.map(link => {
-			return { _id: link.join('>'), source: link[0], target: link[1] };
-		});
+		const props = [
+			'jsonUrl',
+			'numDimensions',
+			'nodeRelSize',
+			'lineOpacity',
+			'autoColorBy',
+			'idField',
+			'valField',
+			'nameField',
+			'colorField',
+			'linkSourceField',
+			'linkTargetField',
+			'warmupTicks',
+			'cooldownTicks',
+			'cooldownTime'
+		].map(prop => [
+			prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(),	// camelCase to dash
+			state[prop]
+		]);
 
-		// Add A-frame objects
-		let nodes = state.scene.selectAll('a-sphere.node')
-			.data(d3Nodes, d => d._id);
+		props.push(['nodes', JSON.stringify(state.graphData.nodes)]);
+		props.push(['links', JSON.stringify(state.graphData.links)]);
 
-		nodes.exit().remove();
-
-		nodes = nodes.merge(
-			nodes.enter()
-				.append('a-sphere')
-				.classed('node', true)
-				.attr('segments-width', 8)	// Lower geometry resolution to improve perf
-				.attr('segments-height', 8)
-				.attr('radius', d => Math.cbrt(state.valAccessor(d) || 1) * state.nodeRelSize)
-				.attr('color', d => '#' + (state.colorAccessor(d) || 0xffffaa).toString(16))
-				.attr('opacity', 0.75)
-				.on('mouseenter', d => {
-					state.tooltipElem.attr('value', state.nameAccessor(d) || '');
-				})
-				.on('mouseleave', () => {
-					state.tooltipElem.attr('value', '');
-				})
+		state.forcegraph.setAttribute('forceGraph',
+			props
+				.filter(prop => prop[1] !== null)
+				.map(([prop, val]) => `${prop}: ${val}`)
+				.join('; ')
 		);
-
-		let links = state.scene.selectAll('a-entity.link')
-			.data(d3Links, d => d._id);
-
-		links.exit().remove();
-
-		links = links.merge(
-			links.enter()
-				.append('a-entity')
-				.classed('link', true)
-				.attr('line', `color: #f0f0f0; opacity: ${state.lineOpacity}`)
-		);
-
-		// Feed data to force-directed layout
-		state.forceLayout
-			.stop()
-			.alpha(1)// re-heat the simulation
-			.alphaDecay(state.alphaDecay)
-			.velocityDecay(state.velocityDecay)
-			.numDimensions(state.numDimensions)
-			.nodes(d3Nodes)
-			.force('link').links(d3Links);
-
-		for (let i=0; i<state.warmUpTicks; i++) { state.forceLayout.tick(); } // Initial ticks before starting to render
-
-		let cntTicks = 0;
-		const startTickTime = new Date();
-		state.forceLayout.on("tick", layoutTick).restart();
-
-		//
-
-		function layoutTick() {
-			if (cntTicks++ > state.coolDownTicks || (new Date()) - startTickTime > state.coolDownTime) {
-				state.forceLayout.stop(); // Stop ticking graph
-			}
-
-			// Update nodes position
-			nodes.attr('position', d => `${d.x} ${d.y || 0} ${d.z || 0}`);
-
-			//Update links position
-			links.attr('line', d => `start: ${d.source.x} ${d.source.y || 0} ${d.source.z || 0};  end: ${d.target.x} ${d.target.y || 0} ${d.target.z || 0}`);
-		}
 	}
 });
