@@ -25,6 +25,7 @@ export default SWC.createComponent({
 		new SWC.Prop('colorField', 'color'),
 		new SWC.Prop('linkSourceField', 'source'),
 		new SWC.Prop('linkTargetField', 'target'),
+		new SWC.Prop('forceEngine', 'd3'), // d3 or ngraph
 		new SWC.Prop('warmupTicks', 0), // how many times to tick the force engine at init before starting to render
 		new SWC.Prop('cooldownTicks', Infinity),
 		new SWC.Prop('cooldownTime', 15000) // ms
@@ -82,6 +83,7 @@ export default SWC.createComponent({
 			'colorField',
 			'linkSourceField',
 			'linkTargetField',
+			'forceEngine',
 			'warmupTicks',
 			'cooldownTicks',
 			'cooldownTime'

@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "aframe": "^0.5",
-    "aframe-forcegraph-component": "^1.5",
+    "aframe-forcegraph-component": "^1.6",
     "swc": "^0.1"
   },
   "devDependencies": {
