@@ -42,7 +42,7 @@ export default SWC.createComponent({
 		let navInfo;
 		domNode.appendChild(navInfo = document.createElement('div'));
 		navInfo.className = 'graph-nav-info';
-		navInfo.textContent = 'Mouse drag: look, arrow/wasd keys: move';
+		navInfo.textContent = 'Mouse drag: look, gamepad/arrow/wasd keys: move';
 
 		// Add scene
 		let scene;
