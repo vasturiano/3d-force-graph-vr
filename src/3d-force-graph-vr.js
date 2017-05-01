@@ -3,6 +3,9 @@ import './3d-force-graph-vr.css';
 import 'aframe';
 import 'aframe-forcegraph-component';
 
+import GamepadControls from 'aframe-gamepad-controls';
+AFRAME.registerComponent('gamepad-controls', GamepadControls);
+
 import * as SWC from 'swc';
 
 //
@@ -59,6 +62,7 @@ export default SWC.createComponent({
 		camera.setAttribute('user-height', '0');
 		camera.setAttribute('reverse-mouse-drag', true);
 		camera.setAttribute('wasd-controls', 'fly: true; acceleration: 3000');
+		camera.setAttribute('gamepad-controls', 'flyEnabled: true; acceleration: 3000;');
 
 		let cursor;
 		camera.appendChild(cursor = document.createElement('a-cursor'));
