@@ -16,7 +16,7 @@ Live example: https://bl.ocks.org/vasturiano/972ca4f3e8e074dacf14d7071aad8ef9
 ## Quick start
 
 ```
-import { default as ForceGraphVR } from '3d-force-graph-vr';
+import ForceGraphVR from '3d-force-graph-vr';
 ```
 or
 ```
