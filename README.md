@@ -31,58 +31,58 @@ var ForceGraphVR = require('3d-force-graph-vr');
 ```
 or even
 ```
-<script src="//unpkg.com/3d-force-graph-vr/dist/3d-force-graph-vr.js"></script>
+<script src="//unpkg.com/3d-force-graph-vr/dist/3d-force-graph-vr.min.js"></script>
 ```
 then
 ```
 var myGraph = ForceGraphVR();
-myGraph(<myDOMElement>);
+myGraph(<myDOMElement>)
+    .graphData(<myData>);
 ```
 
 ## API reference
 
-```
-ForceGraphVR()
-     .jsonUrl(<URL of JSON file to load graph data directly from, as an alternative to specifying graphData directly>)
-     .graphData(<data>)
-     .numDimensions(<number of dimensions, between [1,3]. default: 3>)
-     .nodeRelSize(<(number) node volume per value unit>)
-     .lineOpacity(<between [0,1]>)
-     .autoColorBy(<node object accessor property name, only affects nodes without a color field>)
-     .idField(<node object accessor property name. default: 'id'>)
-     .valField(<node object accessor property name. default: 'val'>)
-     .nameField(<node object accessor property name. default: 'name'>)
-     .colorField(<node object accessor property name. default: 'color'>)
-     .linkSourceField(<link object accessor property name. default: 'source'>)
-     .linkTargetField(<link object accessor property name. default: 'target'>)
-     .forceEngine(<which force-simulation engine to use: 'd3' (default) or 'ngraph'>)
-     .warmupTicks(<number of layout engine cycles to run before start rendering. default: 0>)
-     .cooldownTicks(<# frames to stop engine. default: Infinity>)
-     .cooldownTime(<ms to stop engine. default: 15000>)
-     .resetProps()
-```
+| Method | Description | Default |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| <b>jsonUrl</b>([<i>url</i>]) | URL of JSON file to load graph data directly from, as an alternative to specifying graphData directly ||
+| <b>graphData</b>([<i>data</i>]) | Getter/setter for graph data structure (see below for syntax details) | { nodes: [], links: [] } |
+| <b>numDimensions</b>([<i>int</i>]) | Getter/setter for number of dimensions to run the force simulation, between [1,3] | 3 |
+| <b>nodeRelSize</b>([<i>num</i>]) | Getter/setter for ratio of the node sphere volume (cubic px) per value unit | 4 |
+| <b>lineOpacity</b>([<i>num</i>]) | Getter/setter for line opacity of links, between [0,1] | 0.2 |
+| <b>autoColorBy</b>([<i>str</i>]) | Node object accessor attribute to automatically color group nodes by, only affects nodes without a color field ||
+| <b>idField</b>([<i>str</i>]) | Node object accessor attribute for node id | id |
+| <b>valField</b>([<i>str</i>]) | Node object accessor attribute for node numeric value (translates to sphere volume) | val |
+| <b>nameField</b>([<i>str</i>]) | Node object accessor attribute for node name used in label | name |
+| <b>colorField</b>([<i>str</i>]) | Node object accessor attribute for node color | color |
+| <b>linkSourceField</b>([<i>str</i>]) | Link object accessor attribute for source node id | source |
+| <b>linkTargetField</b>([<i>str</i>]) | Link object accessor attribute for target node id | target |
+| <b>forceEngine</b>([<i>str</i>]) | Getter/setter for which force-simulation engine to use: 'd3' or 'ngraph' | d3 |
+| <b>warmupTicks</b>([<i>int</i>]) | Getter/setter for the number of layout engine cycles to dry-run before start rendering | 0 |
+| <b>cooldownTicks</b>([<i>int</i>]) | Getter/setter for how many build-in frames to render before stopping the layout engine iteration | Infinity |
+| <b>cooldownTime</b>([<i>num</i>]) | Getter/setter for how long (ms) to render before stopping the layout engine iteration | 15000 |
+| <b>resetProps() | Reset all component properties to their default value ||
 
-## Data syntax
+## Input JSON syntax
 
 ```
 {
-    nodes: [ 
+    "nodes": [ 
         { 
-          id: 'id1',
-          name: "name1",
-          val: 1 
+          "id": "id1",
+          "name": "name1",
+          "val": 1 
         },
         { 
-          id: 'id2',
-          name: "name2",
-          val: 10 
+          "id": "id2",
+          "name": "name2",
+          "val": 10 
         },
         (...)
     ],
-    links: [
+    "links": [
         {
-            source: 'id1',
-            target: 'id2'
+            "source": "id1",
+            "target": "id2"
         },
         (...)
     ]
