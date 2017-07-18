@@ -33,7 +33,7 @@
   "dependencies": {
     "aframe": "^0.5",
     "aframe-forcegraph-component": "^1.6",
-    "aframe-gamepad-controls": "~0.5",
+    "aframe-gamepad-controls": "~0.6",
     "swc": "^0.2"
   },
   "devDependencies": {
