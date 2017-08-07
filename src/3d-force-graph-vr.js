@@ -6,35 +6,35 @@ import 'aframe-forcegraph-component';
 import GamepadControls from 'aframe-gamepad-controls';
 AFRAME.registerComponent('gamepad-controls', GamepadControls);
 
-import * as SWC from 'swc';
+import Kapsule from 'kapsule';
 
 //
 
-export default SWC.createComponent({
+export default Kapsule({
 
-	props: [
-		new SWC.Prop('jsonUrl'),
-		new SWC.Prop('graphData', {
+	props: {
+		jsonUrl: {},
+		graphData: { default: {
 			nodes: [],
 			links: []
-		}),
-		new SWC.Prop('numDimensions', 3),
-		new SWC.Prop('nodeRelSize', 4), // volume per val unit
-		new SWC.Prop('lineOpacity', 0.2),
-		new SWC.Prop('autoColorBy'),
-		new SWC.Prop('idField', 'id'),
-		new SWC.Prop('valField', 'val'),
-		new SWC.Prop('nameField', 'name'),
-		new SWC.Prop('colorField', 'color'),
-		new SWC.Prop('linkSourceField', 'source'),
-		new SWC.Prop('linkTargetField', 'target'),
-		new SWC.Prop('forceEngine', 'd3'), // d3 or ngraph
-		new SWC.Prop('warmupTicks', 0), // how many times to tick the force engine at init before starting to render
-		new SWC.Prop('cooldownTicks', Infinity),
-		new SWC.Prop('cooldownTime', 15000) // ms
-	],
+		}},
+		numDimensions: { default: 3 },
+		nodeRelSize: { default: 4 }, // volume per val unit
+		lineOpacity: { default: 0.2 },
+		autoColorBy: {},
+		idField: { default: 'id' },
+		valField: { default: 'val' },
+		nameField: { default: 'name' },
+		colorField: { default: 'color' },
+		linkSourceField: { default: 'source' },
+		linkTargetField: { default: 'target' },
+		forceEngine: { default: 'd3' }, // d3 or ngraph
+		warmupTicks: { default: 0 }, // how many times to tick the force engine at init before starting to render
+		cooldownTicks: { default: Infinity },
+		cooldownTime: { default: 15000 } // ms
+	},
 
-	init: (domNode, state) => {
+	init(domNode, state) {
 		// Wipe DOM
 		domNode.innerHTML = '';
 
@@ -74,7 +74,7 @@ export default SWC.createComponent({
 		state.forcegraph.setAttribute('forcegraph', null);
 	},
 
-	update: state => {
+	update(state) {
 		const props = [
 			'jsonUrl',
 			'numDimensions',
