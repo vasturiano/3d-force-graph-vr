@@ -3,6 +3,7 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import postCss from 'rollup-plugin-postcss';
 import postCssSimpleVars from 'postcss-simple-vars';
 import postCssNested from 'postcss-nested';
+import babel from 'rollup-plugin-babel';
 
 export default {
     entry: 'src/index.js',
@@ -21,6 +22,13 @@ export default {
                 postCssSimpleVars(),
                 postCssNested()
             ]
+        }),
+        babel({
+            presets: [
+                ["es2015", { "modules": false }]
+            ],
+            plugins: ["external-helpers"],
+            babelrc: false
         })
     ]
 };
