@@ -2,8 +2,8 @@
   "name": "3d-force-graph-vr",
   "version": "1.4.0",
   "description": "UI component for a 3D force-directed graph in VR",
-  "main": "dist/3d-force-graph-vr.js",
-  "jsnext:main": "src/index",
+  "main": "dist/3d-force-graph-vr.min.js",
+  "module": "src/index",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vasturiano/3d-force-graph-vr.git"
@@ -34,7 +34,7 @@
     "aframe": "^0.5",
     "aframe-forcegraph-component": "^1.6",
     "aframe-gamepad-controls": "~0.6",
-    "kapsule": "^1.7.3"
+    "kapsule": "^1.7.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

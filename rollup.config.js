@@ -13,10 +13,7 @@ export default {
     moduleName: 'ForceGraphVR',
     plugins: [
         commonJs(),
-        nodeResolve({
-            jsnext: true,
-            main: true
-        }),
+        nodeResolve(),
         postCss({
             plugins: [
                 postCssSimpleVars(),
