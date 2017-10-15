@@ -6,11 +6,20 @@ import postCssNested from 'postcss-nested';
 import babel from 'rollup-plugin-babel';
 
 export default {
-    entry: 'src/index.js',
-    dest: 'dist/3d-force-graph-vr.js',
-    useStrict: false, // a-frame 0.5 not 'strict' compatible
-    format: 'umd',
-    moduleName: 'ForceGraphVR',
+    strict: false, // a-frame 0.5 not 'strict' compatible
+    input: 'src/index.js',
+    output: [
+        {
+            format: 'umd',
+            name: 'ForceGraphVR',
+            file: 'dist/3d-force-graph-vr.js',
+            sourcemap: true
+        },
+        {
+            format: 'es',
+            file: 'dist/3d-force-graph-vr.mjs'
+        }
+    ],
     plugins: [
         commonJs(),
         nodeResolve(),

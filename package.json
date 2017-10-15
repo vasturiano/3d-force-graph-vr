@@ -3,7 +3,7 @@
   "version": "1.4.1",
   "description": "UI component for a 3D force-directed graph in VR",
   "main": "dist/3d-force-graph-vr.min.js",
-  "module": "src/index",
+  "module": "dist/3d-force-graph-vr.mjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vasturiano/3d-force-graph-vr.git"
