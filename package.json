@@ -33,10 +33,10 @@
     "prepublish": "npm run build && npm run minify && npm run build-module"
   },
   "dependencies": {
-    "aframe": "^0.5",
+    "aframe": "^0.7.1",
     "aframe-forcegraph-component": "^1.6",
     "aframe-gamepad-controls": "~0.6",
-    "kapsule": "^1.7.6"
+    "kapsule": "^1.7.8"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
