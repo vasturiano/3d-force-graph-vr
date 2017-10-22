@@ -1,9 +1,10 @@
+import resolve from 'rollup-plugin-node-resolve';
 import commonJs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
 import postCss from 'rollup-plugin-postcss';
 import postCssSimpleVars from 'postcss-simple-vars';
 import postCssNested from 'postcss-nested';
 import babel from 'rollup-plugin-babel';
+import { name, homepage, version } from './package.json';
 
 export default {
     strict: false, // a-frame 0.5 not 'strict' compatible
@@ -12,29 +13,20 @@ export default {
         {
             format: 'umd',
             name: 'ForceGraphVR',
-            file: 'dist/3d-force-graph-vr.js',
+            file: `dist/${name}.js`,
             sourcemap: true
-        },
-        {
-            format: 'es',
-            file: 'dist/3d-force-graph-vr.mjs'
         }
     ],
     plugins: [
-        commonJs(),
-        nodeResolve(),
         postCss({
             plugins: [
                 postCssSimpleVars(),
                 postCssNested()
             ]
         }),
-        babel({
-            presets: [
-                ["es2015", { "modules": false }]
-            ],
-            plugins: ["external-helpers"],
-            babelrc: false
-        })
-    ]
+        resolve(),
+        commonJs(),
+        babel({ exclude: 'node_modules/**' })
+    ],
+    banner: `// Version ${version} ${name} - ${homepage}`
 };
