@@ -20,6 +20,7 @@ export default Kapsule({
         }},
         numDimensions: { default: 3 },
         nodeRelSize: { default: 4 }, // volume per val unit
+        nodeResolution: { default: 8 }, // how many slice segments in the sphere's circumference
         lineOpacity: { default: 0.2 },
         autoColorBy: {},
         idField: { default: 'id' },
@@ -28,6 +29,7 @@ export default Kapsule({
         colorField: { default: 'color' },
         linkSourceField: { default: 'source' },
         linkTargetField: { default: 'target' },
+        linkColorField: { default: 'color' },
         forceEngine: { default: 'd3' }, // d3 or ngraph
         warmupTicks: { default: 0 }, // how many times to tick the force engine at init before starting to render
         cooldownTicks: {},
@@ -79,6 +81,7 @@ export default Kapsule({
             'jsonUrl',
             'numDimensions',
             'nodeRelSize',
+            'nodeResolution',
             'lineOpacity',
             'autoColorBy',
             'idField',
@@ -87,6 +90,7 @@ export default Kapsule({
             'colorField',
             'linkSourceField',
             'linkTargetField',
+            'linkColorField',
             'forceEngine',
             'warmupTicks',
             'cooldownTicks',
@@ -96,11 +100,17 @@ export default Kapsule({
         const newProps = Object.assign({},
             ...Object.entries(state)
                 .filter(([prop, val]) => passThroughProps.indexOf(prop) != -1 && val !== undefined && val !== null)
-                .map(([key, val]) => ({ [key]: val })),
+                .map(([key, val]) => ({ [key]: serialize(val) })),
             ...Object.entries(state.graphData)
-                .map(([key, val]) => ({ [key]: JSON.stringify(val) })) // convert nodes & links to string
+                .map(([key, val]) => ({ [key]: JSON.stringify(val) })) // convert nodes & links to strings
         );
 
         state.forcegraph.setAttribute('forcegraph', newProps, true);
+
+        //
+
+        function serialize(p) {
+            return p instanceof Function ? p.toString() : p; // convert functions to strings
+        }
     }
 });
