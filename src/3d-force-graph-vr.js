@@ -30,7 +30,7 @@ export default Kapsule({
         linkTargetField: { default: 'target' },
         forceEngine: { default: 'd3' }, // d3 or ngraph
         warmupTicks: { default: 0 }, // how many times to tick the force engine at init before starting to render
-        cooldownTicks: { default: Infinity },
+        cooldownTicks: {},
         cooldownTime: { default: 15000 } // ms
     },
 
@@ -75,7 +75,12 @@ export default Kapsule({
     },
 
     update(state) {
-        const props = [
+        const newProps = {
+            nodes: JSON.stringify(state.graphData.nodes),
+            links: JSON.stringify(state.graphData.links)
+        };
+
+        [
             'jsonUrl',
             'numDimensions',
             'nodeRelSize',
@@ -91,18 +96,15 @@ export default Kapsule({
             'warmupTicks',
             'cooldownTicks',
             'cooldownTime'
-        ].map(prop => [
-            prop.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(),	// camelCase to dash
-            state[prop]
-        ]);
+        ]
+        .filter(p => state[p] !== undefined && state[p] !== null)
+        .forEach(prop => {
+            newProps[prop] = state[prop];
+        });
 
         props.push(['nodes', JSON.stringify(state.graphData.nodes)]);
         props.push(['links', JSON.stringify(state.graphData.links)]);
 
-        state.forcegraph.setAttribute('forceGraph',
-            props
-                .map(([prop, val]) => `${prop}: ${val!==null?val:''}`)
-                .join('; ')
-        );
+        state.forcegraph.setAttribute('forcegraph', newProps, true);
     }
 });
