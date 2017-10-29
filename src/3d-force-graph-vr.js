@@ -75,12 +75,7 @@ export default Kapsule({
     },
 
     update(state) {
-        const newProps = {
-            nodes: JSON.stringify(state.graphData.nodes),
-            links: JSON.stringify(state.graphData.links)
-        };
-
-        [
+        const passThroughProps = [
             'jsonUrl',
             'numDimensions',
             'nodeRelSize',
@@ -96,14 +91,15 @@ export default Kapsule({
             'warmupTicks',
             'cooldownTicks',
             'cooldownTime'
-        ]
-        .filter(p => state[p] !== undefined && state[p] !== null)
-        .forEach(prop => {
-            newProps[prop] = state[prop];
-        });
+        ];
 
-        props.push(['nodes', JSON.stringify(state.graphData.nodes)]);
-        props.push(['links', JSON.stringify(state.graphData.links)]);
+        const newProps = Object.assign({},
+            ...Object.entries(state)
+                .filter(([prop, val]) => passThroughProps.indexOf(prop) != -1 && val !== undefined && val !== null)
+                .map(([key, val]) => ({ [key]: val })),
+            ...Object.entries(state.graphData)
+                .map(([key, val]) => ({ [key]: JSON.stringify(val) })) // convert nodes & links to string
+        );
 
         state.forcegraph.setAttribute('forcegraph', newProps, true);
     }
