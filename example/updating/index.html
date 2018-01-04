@@ -1,0 +1,29 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/3d-force-graph-vr"></script>
+  <!--<script src="../../dist/3d-force-graph-vr.js"></script>-->
+</head>
+
+<body>
+  <div id="3d-graph"></div>
+
+  <script>
+    const initData = {
+      nodes: [ {id: 0 } ],
+      links: []
+    };
+    const Graph = ForceGraphVR()
+      (document.getElementById("3d-graph"))
+        .graphData(initData);
+
+    setInterval(() => {
+      const { nodes, links } = Graph.graphData();
+      const id = nodes.length;
+      Graph.graphData({
+        nodes: [...nodes, { id }],
+        links: [...links, { source: id, target: Math.round(Math.random() * (id-1)) }]
+      });
+    }, 1000);
+  </script>
+</body>
