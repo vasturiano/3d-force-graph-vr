@@ -102,6 +102,7 @@ export default Kapsule({
       'nodeVal',
       'nodeResolution',
       'nodeColor',
+      'nodeThreeObject',
       'linkSource',
       'linkTarget',
       'linkLabel',
