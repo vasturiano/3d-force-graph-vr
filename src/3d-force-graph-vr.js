@@ -15,6 +15,7 @@ export default Kapsule({
     graphData: { default: { nodes: [], links: [] }},
     numDimensions: { default: 3 },
     backgroundColor: { default: '#002' },
+    showNavInfo: { default: true },
     nodeRelSize: { default: 4 }, // volume per val unit
     nodeId: { default: 'id' },
     nodeLabel: { default: 'name' },
@@ -57,10 +58,9 @@ export default Kapsule({
     domNode.innerHTML = '';
 
     // Add nav info section
-    let navInfo;
-    domNode.appendChild(navInfo = document.createElement('div'));
-    navInfo.className = 'graph-nav-info';
-    navInfo.textContent = 'Mouse drag: look, gamepad/arrow/wasd keys: move';
+    domNode.appendChild(state.navInfo = document.createElement('div'));
+    state.navInfo.className = 'graph-nav-info';
+    state.navInfo.textContent = 'Mouse drag: look, gamepad/arrow/wasd keys: move';
 
     // Add scene
     let scene;
@@ -93,6 +93,7 @@ export default Kapsule({
 
   update(state) {
     state.sky.setAttribute('color', state.backgroundColor);
+    state.navInfo.style.display = state.showNavInfo ? null : 'none';
 
     const passThroughProps = [
       'jsonUrl',
