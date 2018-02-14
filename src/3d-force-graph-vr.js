@@ -34,6 +34,8 @@ export default Kapsule({
     linkColor: { default: 'color' },
     linkAutoColorBy: {},
     linkOpacity: { default: 0.2 },
+    linkWidth: { default: 0 },
+    linkResolution: { default: 6 }, // how many radial segments in each line cylinder's geometry
     forceEngine: { default: 'd3' }, // d3 or ngraph
     d3AlphaDecay: { default: 0.0228 },
     d3VelocityDecay: { default: 0.4 },
@@ -117,6 +119,8 @@ export default Kapsule({
       'linkColor',
       'linkAutoColorBy',
       'linkOpacity',
+      'linkWidth',
+      'linkResolution',
       'forceEngine',
       'd3AlphaDecay',
       'd3VelocityDecay',
