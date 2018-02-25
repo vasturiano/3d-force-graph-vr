@@ -36,6 +36,10 @@ export default Kapsule({
     linkOpacity: { default: 0.2 },
     linkWidth: { default: 0 },
     linkResolution: { default: 6 }, // how many radial segments in each line cylinder's geometry
+    linkDirectionalParticles: { default: 0 }, // animate photons travelling in the link direction
+    linkDirectionalParticleSpeed: { default: 0.01 }, // in link length ratio per frame
+    linkDirectionalParticleWidth: { default: 0.5 },
+    linkDirectionalParticleResolution: { default: 4 }, // how many slice segments in the particle sphere's circumference
     forceEngine: { default: 'd3' }, // d3 or ngraph
     d3AlphaDecay: { default: 0.0228 },
     d3VelocityDecay: { default: 0.4 },
@@ -121,6 +125,10 @@ export default Kapsule({
       'linkOpacity',
       'linkWidth',
       'linkResolution',
+      'linkDirectionalParticles',
+      'linkDirectionalParticleSpeed',
+      'linkDirectionalParticleWidth',
+      'linkDirectionalParticleResolution',
       'forceEngine',
       'd3AlphaDecay',
       'd3VelocityDecay',
