@@ -15,7 +15,7 @@ Check out the examples:
 * [Directional links](https://vasturiano.github.io/3d-force-graph-vr/example/directional-links/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/directional-links/index.html))
 * [Auto-colored nodes/links](https://vasturiano.github.io/3d-force-graph-vr/example/auto-colored/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/auto-colored/index.html))
 * [Custom node geometries](https://vasturiano.github.io/3d-force-graph-vr/example/custom-node-geometry/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/custom-node-geometry/index.html))
-* [Dynamic data changes](https://vasturiano.github.io/3d-force-graph-vr/example/update/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/update/index.html))
+* [Dynamic data changes](https://vasturiano.github.io/3d-force-graph-vr/example/updating/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/updating/index.html))
 
 See also the [WebGL 3D version](https://github.com/vasturiano/3d-force-graph), and the [A-Frame component version (aframe-forcegraph-component)](https://github.com/vasturiano/aframe-forcegraph-component).
 
