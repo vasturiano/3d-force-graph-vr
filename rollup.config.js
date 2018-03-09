@@ -7,10 +7,10 @@ import babel from 'rollup-plugin-babel';
 import { name, homepage, version } from './package.json';
 
 export default {
-  strict: false, // a-frame 0.5 not 'strict' compatible
   input: 'src/index.js',
   output: [
     {
+      strict: false, // a-frame 0.7 not 'strict' compatible
       format: 'umd',
       name: 'ForceGraphVR',
       file: `dist/${name}.js`,
