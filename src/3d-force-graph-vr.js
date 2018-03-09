@@ -39,6 +39,7 @@ export default Kapsule({
     linkDirectionalParticles: { default: 0 }, // animate photons travelling in the link direction
     linkDirectionalParticleSpeed: { default: 0.01 }, // in link length ratio per frame
     linkDirectionalParticleWidth: { default: 0.5 },
+    linkDirectionalParticleColor: {},
     linkDirectionalParticleResolution: { default: 4 }, // how many slice segments in the particle sphere's circumference
     forceEngine: { default: 'd3' }, // d3 or ngraph
     d3AlphaDecay: { default: 0.0228 },
@@ -128,6 +129,7 @@ export default Kapsule({
       'linkDirectionalParticles',
       'linkDirectionalParticleSpeed',
       'linkDirectionalParticleWidth',
+      'linkDirectionalParticleColor',
       'linkDirectionalParticleResolution',
       'forceEngine',
       'd3AlphaDecay',
