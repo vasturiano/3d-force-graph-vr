@@ -33,8 +33,8 @@
     "prepublish": "npm run build && npm run minify && npm run build-module"
   },
   "dependencies": {
-    "aframe": "^0.7.1",
-    "aframe-forcegraph-component": "^2.6.0",
+    "aframe": "^0.8.1",
+    "aframe-forcegraph-component": "^2.6.1",
     "aframe-gamepad-controls": "~0.6",
     "kapsule": "^1.9.0"
   },
@@ -52,6 +52,6 @@
     "rollup-plugin-node-resolve": "^3.2.0",
     "rollup-plugin-postcss": "^1.3.3",
     "rollup-watch": "^4.3.1",
-    "uglify-js": "^3.3.13"
+    "uglify-es": "^3.3.9"
   }
 }
