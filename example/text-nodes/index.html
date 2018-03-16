@@ -1,6 +1,9 @@
 <head>
   <style> body { margin: 0; } </style>
 
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/three-spritetext"></script>
+
   <script src="//unpkg.com/3d-force-graph-vr"></script>
   <!--<script src="../../dist/3d-force-graph-vr.js"></script>-->
 </head>
@@ -12,7 +15,13 @@
     const Graph = ForceGraphVR()
       (document.getElementById('3d-graph'))
         .jsonUrl('../datasets/miserables.json')
-        .nodeLabel('id')
-        .nodeAutoColorBy('group');
+        .nodeAutoColorBy('group')
+        .nodeThreeObject(node => {
+          const sprite = new SpriteText(node.id);
+          sprite.color = node.color;
+          sprite.textHeight = 8;
+          return sprite;
+        });
+
   </script>
 </body>

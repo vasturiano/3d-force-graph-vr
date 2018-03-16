@@ -12,8 +12,10 @@ Uses [A-Frame](https://aframe.io/) for VR rendering and [d3-force-3d](https://gi
 Check out the examples:
 * [Basic](https://vasturiano.github.io/3d-force-graph-vr/example/basic/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/basic/index.html))
 * [Asynchronous load](https://vasturiano.github.io/3d-force-graph-vr/example/async-load/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/async-load/index.html))
+* [Larger graph (~4k elements)](https://vasturiano.github.io/3d-force-graph-vr/example/large-graph/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/large-graph/index.html))
 * [Directional links](https://vasturiano.github.io/3d-force-graph-vr/example/directional-links/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/directional-links/index.html))
 * [Auto-colored nodes/links](https://vasturiano.github.io/3d-force-graph-vr/example/auto-colored/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/auto-colored/index.html))
+* [Text as nodes](https://vasturiano.github.io/3d-force-graph-vr/example/text-nodes/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/text-nodes/index.html))
 * [Custom node geometries](https://vasturiano.github.io/3d-force-graph-vr/example/custom-node-geometry/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/custom-node-geometry/index.html))
 * [Dynamic data changes](https://vasturiano.github.io/3d-force-graph-vr/example/updating/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/updating/index.html))
 
