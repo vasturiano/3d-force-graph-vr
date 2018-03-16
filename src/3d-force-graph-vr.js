@@ -65,14 +65,19 @@ export default Kapsule({
     // Wipe DOM
     domNode.innerHTML = '';
 
+    const container = document.createElement('div');
+    domNode.appendChild(container);
+    container.style.position = 'relative';
+
     // Add nav info section
-    domNode.appendChild(state.navInfo = document.createElement('div'));
+    container.appendChild(state.navInfo = document.createElement('div'));
     state.navInfo.className = 'graph-nav-info';
     state.navInfo.textContent = 'Mouse drag: look, gamepad/arrow/wasd keys: move';
 
     // Add scene
     let scene;
-    domNode.appendChild(scene = document.createElement('a-scene'));
+    container.appendChild(scene = document.createElement('a-scene'));
+    scene.setAttribute('embedded', '');
     //scene.setAttribute('stats', null);
 
     scene.appendChild(state.sky = document.createElement('a-sky'));
