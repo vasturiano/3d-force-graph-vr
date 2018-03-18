@@ -11,6 +11,8 @@ import Kapsule from 'kapsule';
 export default Kapsule({
 
   props: {
+    width: { default: window.innerWidth, triggerUpdate: false, onChange(width, state) { if(state.container) state.container.style.width = width }},
+    height: { default: window.innerHeight, triggerUpdate: false, onChange(height, state) { if(state.container) state.container.style.height = height }},
     jsonUrl: {},
     graphData: { default: { nodes: [], links: [] }},
     numDimensions: { default: 3 },
@@ -65,18 +67,20 @@ export default Kapsule({
     // Wipe DOM
     domNode.innerHTML = '';
 
-    const container = document.createElement('div');
-    domNode.appendChild(container);
-    container.style.position = 'relative';
+    state.container = document.createElement('div');
+    domNode.appendChild(state.container);
+    state.container.style.position = 'relative';
+    state.container.style.width = state.width;
+    state.container.style.height = state.height;
 
     // Add nav info section
-    container.appendChild(state.navInfo = document.createElement('div'));
+    state.container.appendChild(state.navInfo = document.createElement('div'));
     state.navInfo.className = 'graph-nav-info';
     state.navInfo.textContent = 'Mouse drag: look, gamepad/arrow/wasd keys: move';
 
     // Add scene
     let scene;
-    container.appendChild(scene = document.createElement('a-scene'));
+    state.container.appendChild(scene = document.createElement('a-scene'));
     scene.setAttribute('embedded', '');
     //scene.setAttribute('stats', null);
 
