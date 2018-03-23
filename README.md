@@ -21,6 +21,8 @@ Check out the examples:
 
 See also the [WebGL 3D version](https://github.com/vasturiano/3d-force-graph), and the [A-Frame component version (aframe-forcegraph-component)](https://github.com/vasturiano/aframe-forcegraph-component).
 
+And check out the [React bindings](https://github.com/vasturiano/react-force-graph).
+
 ## Quick start
 
 ```
