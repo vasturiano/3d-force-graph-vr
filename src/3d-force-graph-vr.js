@@ -38,6 +38,7 @@ export default Kapsule({
     linkOpacity: { default: 0.2 },
     linkWidth: { default: 0 },
     linkResolution: { default: 6 }, // how many radial segments in each line cylinder's geometry
+    linkMaterial: {},
     linkDirectionalParticles: { default: 0 }, // animate photons travelling in the link direction
     linkDirectionalParticleSpeed: { default: 0.01 }, // in link length ratio per frame
     linkDirectionalParticleWidth: { default: 0.5 },
@@ -135,6 +136,7 @@ export default Kapsule({
       'linkOpacity',
       'linkWidth',
       'linkResolution',
+      'linkMaterial',
       'linkDirectionalParticles',
       'linkDirectionalParticleSpeed',
       'linkDirectionalParticleWidth',
