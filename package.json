@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "aframe": "^0.8.2",
-    "aframe-forcegraph-component": "^2.9.1",
+    "aframe-forcegraph-component": "^2.9.3",
     "aframe-gamepad-controls": "~0.6",
     "kapsule": "^1.9.1"
   },
