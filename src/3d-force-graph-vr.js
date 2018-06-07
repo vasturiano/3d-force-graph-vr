@@ -1,8 +1,6 @@
 import 'aframe';
+import 'aframe-extras';
 import 'aframe-forcegraph-component';
-
-import GamepadControls from 'aframe-gamepad-controls';
-AFRAME.registerComponent('gamepad-controls', GamepadControls);
 
 import Kapsule from 'kapsule';
 
@@ -93,13 +91,13 @@ export default Kapsule({
     let cameraG;
     scene.appendChild(cameraG = document.createElement('a-entity'));
     cameraG.setAttribute('position', '0 0 300');
+    cameraG.setAttribute('movement-controls', 'fly: true; speed: 7');
 
     let camera;
-    cameraG.appendChild(camera = document.createElement('a-camera'));
-    camera.setAttribute('user-height', '0');
-    camera.setAttribute('reverse-mouse-drag', true);
-    camera.setAttribute('wasd-controls', 'fly: true; acceleration: 3000');
-    camera.setAttribute('gamepad-controls', 'flyEnabled: true; acceleration: 3000;');
+    cameraG.appendChild(camera = document.createElement('a-entity'));
+    camera.setAttribute('camera', '');
+    camera.setAttribute('position', '0 0.001 0');
+    camera.setAttribute('look-controls', 'reverseMouseDrag: false; pointerLockEnabled: true');
 
     let cursor;
     camera.appendChild(cursor = document.createElement('a-cursor'));
