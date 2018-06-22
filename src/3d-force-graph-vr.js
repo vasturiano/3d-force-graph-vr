@@ -39,6 +39,10 @@ export default Kapsule({
     linkCurvature: { default: 0 },
     linkCurveRotation: { default: 0 },
     linkMaterial: {},
+    linkDirectionalArrowLength: { default: 0 },
+    linkDirectionalArrowColor: {},
+    linkDirectionalArrowRelPos: { default: 0.5 }, // value between 0<>1 indicating the relative pos along the (exposed) line
+    linkDirectionalArrowResolution: { default: 8 }, // how many slice segments in the arrow's conic circumference
     linkDirectionalParticles: { default: 0 }, // animate photons travelling in the link direction
     linkDirectionalParticleSpeed: { default: 0.01 }, // in link length ratio per frame
     linkDirectionalParticleWidth: { default: 0.5 },
@@ -139,6 +143,10 @@ export default Kapsule({
       'linkCurvature',
       'linkCurveRotation',
       'linkMaterial',
+      'linkDirectionalArrowLength',
+      'linkDirectionalArrowColor',
+      'linkDirectionalArrowRelPos',
+      'linkDirectionalArrowResolution',
       'linkDirectionalParticles',
       'linkDirectionalParticleSpeed',
       'linkDirectionalParticleWidth',
