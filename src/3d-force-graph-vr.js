@@ -53,7 +53,9 @@ export default Kapsule({
     d3VelocityDecay: { default: 0.4 },
     warmupTicks: { default: 0 }, // how many times to tick the force engine at init before starting to render
     cooldownTicks: {},
-    cooldownTime: { default: 15000 } // ms
+    cooldownTime: { default: 15000 }, // ms
+    onEngineTick: {},
+    onEngineStop: {}
   },
 
   aliases: { // Prop names supported for backwards compatibility
@@ -157,7 +159,9 @@ export default Kapsule({
       'd3VelocityDecay',
       'warmupTicks',
       'cooldownTicks',
-      'cooldownTime'
+      'cooldownTime',
+      'onEngineTick',
+      'onEngineStop'
     ];
 
     const newProps = Object.assign({},
