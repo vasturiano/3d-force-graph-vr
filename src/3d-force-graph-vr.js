@@ -14,6 +14,8 @@ export default Kapsule({
     jsonUrl: {},
     graphData: { default: { nodes: [], links: [] }},
     numDimensions: { default: 3 },
+    dagMode: {},
+    dagLevelDistance: {},
     backgroundColor: { default: '#002' },
     showNavInfo: { default: true },
     nodeRelSize: { default: 4 }, // volume per val unit
@@ -123,6 +125,8 @@ export default Kapsule({
     const passThroughProps = [
       'jsonUrl',
       'numDimensions',
+      'dagMode',
+      'dagLevelDistance',
       'nodeRelSize',
       'nodeId',
       'nodeLabel',
