@@ -18,6 +18,7 @@ Check out the examples:
 * [Curved lines and self links](https://vasturiano.github.io/3d-force-graph-vr/example/curved-links/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/curved-links/index.html))
 * [Auto-colored nodes/links](https://vasturiano.github.io/3d-force-graph-vr/example/auto-colored/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/auto-colored/index.html))
 * [Text as nodes](https://vasturiano.github.io/3d-force-graph-vr/example/text-nodes/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/text-nodes/index.html))
+* [Images as nodes](https://vasturiano.github.io/3d-force-graph-vr/example/img-nodes/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/img-nodes/index.html))
 * [Custom node geometries](https://vasturiano.github.io/3d-force-graph-vr/example/custom-node-geometry/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/custom-node-geometry/index.html))
 * [Dynamic data changes](https://vasturiano.github.io/3d-force-graph-vr/example/updating/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/updating/index.html))
 
