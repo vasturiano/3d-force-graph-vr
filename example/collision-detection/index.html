@@ -1,0 +1,62 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//unpkg.com/3d-force-graph-vr"></script>
+  <!--<script src="../../dist/3d-force-graph-vr.js"></script>-->
+
+  <script src="//unpkg.com/d3-octree"></script>
+  <script src="//unpkg.com/d3-force-3d"></script>
+</head>
+
+<body>
+  <div id="3d-graph"></div>
+
+  <script>
+    const N = 50;
+    const nodes = [...Array(N).keys()].map(() => ({
+      // Initial velocity in random direction
+      vx: Math.random(),
+      vy: Math.random(),
+      vz: Math.random()
+    }));
+
+    const Graph = ForceGraphVR()
+      (document.getElementById('3d-graph'));
+
+    Graph.cooldownTime(Infinity)
+      .d3AlphaDecay(0)
+      .d3VelocityDecay(0)
+
+      // Deactivate existing forces
+      .d3Force('center', null)
+      .d3Force('charge', null)
+
+      // Add collision and bounding box forces
+      .d3Force('collide', d3.forceCollide(Graph.nodeRelSize()))
+      .d3Force('box', forceBox(Graph.nodeRelSize() * N))
+
+      // Add nodes
+      .graphData({ nodes, links: [] });
+
+    //
+
+    function forceBox(cubeSide) {
+      const cubeHalfSide = cubeSide / 2;
+      let nodes;
+
+      function force() {
+        nodes.forEach(node => {
+          const x = node.x || 0, y = node.y || 0, z = node.z || 0;
+
+          // bounce on box walls
+          if (Math.abs(x) > cubeHalfSide) { node.vx *= -1; }
+          if (Math.abs(y) > cubeHalfSide) { node.vy *= -1; }
+          if (Math.abs(z) > cubeHalfSide) { node.vz *= -1; }
+        });
+      }
+
+      force.initialize = n => nodes = n;
+      return force;
+    }
+  </script>
+</body>
