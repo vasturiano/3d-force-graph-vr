@@ -61,6 +61,17 @@ export default Kapsule({
     onEngineStop: {}
   },
 
+  methods: {
+    d3Force: function(state, ...args) {
+      const aframeComp = state.forcegraph.components.forcegraph;
+      const returnVal = aframeComp.d3Force(...args);
+
+      return returnVal === aframeComp
+        ? this // chain based on this object, not the inner aframe component
+        : returnVal;
+    }
+  },
+
   aliases: { // Prop names supported for backwards compatibility
     nameField: 'nodeLabel',
     idField: 'nodeId',
