@@ -28,7 +28,7 @@
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "watch": "rollup -c -w",
-    "minify": "uglifyjs dist/3d-force-graph-vr.js -o dist/3d-force-graph-vr.min.js -c -m --comments '/Version/'",
+    "minify": "terser dist/3d-force-graph-vr.js -o dist/3d-force-graph-vr.min.js -c -m --comments '/Version/'",
     "build-module": "rollup -c rollup.config.module.js",
     "prepare": "npm run build && npm run minify && npm run build-module"
   },
@@ -57,6 +57,6 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-postcss": "^1.6.3",
     "rollup-watch": "^4.3.1",
-    "uglify-es": "^3.3.9"
+    "terser": "^3.11.0"
   }
 }
