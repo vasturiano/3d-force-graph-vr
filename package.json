@@ -32,24 +32,29 @@
     "build-module": "rollup -c rollup.config.module.js",
     "prepare": "npm run build && npm run minify && npm run build-module"
   },
+  "files": [
+    "src/**/*",
+    "dist/**/*",
+    "example/**/*"
+  ],
   "dependencies": {
     "aframe": "^0.8.2",
     "aframe-extras": "^5.0.0",
-    "aframe-forcegraph-component": "^2.14.0",
+    "aframe-forcegraph-component": "^2.14.1",
     "kapsule": "^1.9.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.0",
+    "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
-    "postcss-nested": "^4.1.0",
+    "postcss-nested": "^4.1.1",
     "postcss-simple-vars": "^5.0.1",
     "rimraf": "^2.6.2",
-    "rollup": "^0.67.4",
-    "rollup-plugin-babel": "^4.0.3",
+    "rollup": "^0.68.0",
+    "rollup-plugin-babel": "^4.1.0",
     "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-postcss": "^1.6.3",
     "rollup-watch": "^4.3.1",
     "uglify-es": "^3.3.9"
