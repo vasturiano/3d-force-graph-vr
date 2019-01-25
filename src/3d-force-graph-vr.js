@@ -42,6 +42,8 @@ export default Kapsule({
     linkCurvature: { default: 0 },
     linkCurveRotation: { default: 0 },
     linkMaterial: {},
+    linkThreeObject: {},
+    linkPositionUpdate: {},
     linkDirectionalArrowLength: { default: 0 },
     linkDirectionalArrowColor: {},
     linkDirectionalArrowRelPos: { default: 0.5 }, // value between 0<>1 indicating the relative pos along the (exposed) line
@@ -162,6 +164,8 @@ export default Kapsule({
       'linkCurvature',
       'linkCurveRotation',
       'linkMaterial',
+      'linkThreeObject',
+      'linkPositionUpdate',
       'linkDirectionalArrowLength',
       'linkDirectionalArrowColor',
       'linkDirectionalArrowRelPos',
