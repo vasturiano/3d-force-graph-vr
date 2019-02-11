@@ -71,6 +71,9 @@ export default Kapsule({
       return returnVal === aframeComp
         ? this // chain based on this object, not the inner aframe component
         : returnVal;
+    },
+    _destructor: function() {
+      this.graphData({ nodes: [], links: []});
     }
   },
 
