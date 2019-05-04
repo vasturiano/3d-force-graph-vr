@@ -72,6 +72,10 @@ export default Kapsule({
         ? this // chain based on this object, not the inner aframe component
         : returnVal;
     },
+    refresh: function(state) {
+      state.forcegraph.components.forcegraph.refresh();
+      return this;
+    },
     _destructor: function() {
       this.graphData({ nodes: [], links: []});
     }

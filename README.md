@@ -122,6 +122,7 @@ myGraph(<myDOMElement>)
 | <b>cooldownTime</b>([<i>num</i>]) | Getter/setter for how long (ms) to render for before stopping and freezing the layout engine. | 15000 |
 | <b>onEngineTick</b>(<i>fn</i>) | Callback function invoked at every tick of the simulation engine. | - |
 | <b>onEngineStop</b>(<i>fn</i>) | Callback function invoked when the simulation engine stops and the layout is frozen. | - |
+| <b>refresh</b>() | Redraws all the nodes/links and reheats the force simulation engine. |
 
 ### Input JSON syntax
 ```
