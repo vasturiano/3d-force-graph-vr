@@ -775,10 +775,10 @@ acorn@^6.1.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
   integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
 
-aframe-extras@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/aframe-extras/-/aframe-extras-5.0.1.tgz#cbd5ee5faa78ac62ad0a41bc0de6133f0735d6e0"
-  integrity sha512-ZHCfBXFiPXAQv+O/3Ih/9+GdzYyZOEizQDKByA0FJQwKk0Ruc/v5+LpN+eOxaymUHbFTdgkOm4MOwVfZtHXvTg==
+aframe-extras@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/aframe-extras/-/aframe-extras-6.0.0.tgz#23e4f263acfa0f815f2aedf7202548203075712b"
+  integrity sha512-5kzNWFW9Qm47ANAf9gh7QkB60JGANt7A8ot3Axgloobdt8N+rp+OvnaNXViIihNQ04y2SV1qXICzTOjTrrzBgQ==
   dependencies:
     three-pathfinding "^0.7.0"
 
