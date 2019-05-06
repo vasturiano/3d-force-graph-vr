@@ -782,13 +782,13 @@ aframe-extras@^6.0.0:
   dependencies:
     three-pathfinding "^0.7.0"
 
-aframe-forcegraph-component@^2.16.0:
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-2.16.0.tgz#9bcb451f04e22c43f150cb81a061ff0e49e6aec5"
-  integrity sha512-bo0RlqafdiTJLvsgKGd0lWzSfroFuSmgYDSABagNtiTaWXbws1L1Recwlo4yz3qTIOaPyuJyIwBKwAYq2aCI1g==
+aframe-forcegraph-component@^2.16.3:
+  version "2.16.3"
+  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-2.16.3.tgz#8f5ce72aa960d362959222d63b511df79cb272bc"
+  integrity sha512-AQwd1BETJwcVJDITkFNQTgBam95vQ2naJ2m/hAUQC9hn806abBEU7YuY8e3csfqWbZ3MEKbIK4ZTiGchtbS7kA==
   dependencies:
     accessor-fn "^1.2.2"
-    three-forcegraph "^1.18.0"
+    three-forcegraph "^1.18.3"
 
 aframe@^0.8.2:
   version "0.8.2"
@@ -4239,10 +4239,10 @@ rollup-watch@^4.3.1:
     require-relative "0.8.7"
     rollup-pluginutils "^2.0.1"
 
-rollup@^1.11.2:
-  version "1.11.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.11.2.tgz#bc5169a85592a45ef3bc4c0ee94e1f931a7fa4b5"
-  integrity sha512-H5sS7GZ/Rn0t119Et8mw0QXtg5HTOI/1FL57EKHk5oduRmGaraOf3KcEt6j+dXJ9tXxWQkG+/FBjPS4dzxo6EA==
+rollup@^1.11.3:
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.11.3.tgz#6f436db2a2d6b63f808bf60ad01a177643dedb81"
+  integrity sha512-81MR7alHcFKxgWzGfG7jSdv+JQxSOIOD/Fa3iNUmpzbd7p+V19e1l9uffqT8/7YAHgGOzmoPGN3Fx3L2ptOf5g==
   dependencies:
     "@types/estree" "0.0.39"
     "@types/node" "^11.13.9"
@@ -4626,10 +4626,10 @@ three-buffer-vertex-data@^1.0.0:
   dependencies:
     flatten-vertex-data "^1.0.0"
 
-three-forcegraph@^1.18.0:
-  version "1.18.0"
-  resolved "https://registry.yarnpkg.com/three-forcegraph/-/three-forcegraph-1.18.0.tgz#c9d9b8d43a416f575e34ff0889d86bbf1b28b479"
-  integrity sha512-SOiqyjzBWU4mxiEhK41stHMWlpiou0H2VOveF1kLzU8p43LkRdIsiPV6NZNTe3RIr2ZAOIXeGZ5cEz7G1MLpNg==
+three-forcegraph@^1.18.3:
+  version "1.18.3"
+  resolved "https://registry.yarnpkg.com/three-forcegraph/-/three-forcegraph-1.18.3.tgz#11dedf0b48841b6aa1d7aae1789de51597cbdfb9"
+  integrity sha512-kNsHfcBvpkDyw4uG0T2KBrEZraAHT3mYJCClND7mK7zXhfLsrc1TSiImGoHx4Edfcv4PURUlqgCp4u7diVzhSQ==
   dependencies:
     accessor-fn "^1.2.2"
     d3-force-3d "^2.0.1"

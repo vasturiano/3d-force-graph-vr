@@ -27,7 +27,7 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "watch": "rollup -c -w",
+    "dev": "rollup -c -w",
     "minify": "terser dist/3d-force-graph-vr.js -o dist/3d-force-graph-vr.min.js -c -m --comments '/Version/'",
     "build-module": "rollup -c rollup.config.module.js",
     "prepare": "npm run build && npm run minify && npm run build-module"
@@ -40,7 +40,7 @@
   "dependencies": {
     "aframe": "^0.8.2",
     "aframe-extras": "^6.0.0",
-    "aframe-forcegraph-component": "^2.16.0",
+    "aframe-forcegraph-component": "^2.16.3",
     "kapsule": "^1.10.0"
   },
   "devDependencies": {
@@ -51,7 +51,7 @@
     "postcss-nested": "^4.1.2",
     "postcss-simple-vars": "^5.0.2",
     "rimraf": "^2.6.3",
-    "rollup": "^1.11.2",
+    "rollup": "^1.11.3",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-node-resolve": "^4.2.3",

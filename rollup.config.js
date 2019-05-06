@@ -7,9 +7,11 @@ import babel from 'rollup-plugin-babel';
 import { name, homepage, version } from './package.json';
 
 export default {
+  external: ['three'],
   input: 'src/index.js',
   output: [
     {
+      globals: { three: 'THREE' }, // a-frame exposes three as global
       strict: false, // a-frame 0.7 not 'strict' compatible
       format: 'umd',
       name: 'ForceGraphVR',
