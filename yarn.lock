@@ -723,11 +723,6 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@tweenjs/tween.js@^16.8.0":
-  version "16.11.0"
-  resolved "https://registry.yarnpkg.com/@tweenjs/tween.js/-/tween.js-16.11.0.tgz#6e7a8a3d6c78a057ecd5605087930406d4e05800"
-  integrity sha1-bnqKPWx4oFfs1WBQh5MEBtTgWAA=
-
 "@types/estree@0.0.39":
   version "0.0.39"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
@@ -790,25 +785,26 @@ aframe-forcegraph-component@^2.16.3:
     accessor-fn "^1.2.2"
     three-forcegraph "^1.18.3"
 
-aframe@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/aframe/-/aframe-0.8.2.tgz#435dd7c7d2f059316af87f4a9783427b0617e11f"
-  integrity sha512-kp0c3f17moiilChTsD95q+USB7/12LuusGERSmO2X7Cgq6q6evVv9Oe7qRMZ6Baf26gS0T9Z7umc/e1alqcEVA==
+aframe@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/aframe/-/aframe-0.9.1.tgz#d5913f54608ddac25581c4d3c637ea652f028b70"
+  integrity sha512-elMQ2aDzeH8s7f5F9whTd5M6YiYqSQPtsyISvZ70DIyhAkzKJh3Mx3Bwz1fqyVwgOmh/aImTGHVLy68s/BbMyw==
   dependencies:
-    "@tweenjs/tween.js" "^16.8.0"
-    browserify-css "^0.8.2"
+    browserify-css "^0.8.4"
+    custom-event-polyfill "^1.0.6"
     debug ngokevin/debug#noTimestamp
     deep-assign "^2.0.0"
-    document-register-element dmarcos/document-register-element#8ccc532b7
+    document-register-element dmarcos/document-register-element#8ccc532b7f3744be954574caf3072a5fd260ca90
     envify "^3.4.1"
     load-bmfont "^1.2.3"
     object-assign "^4.0.1"
     present "0.0.6"
     promise-polyfill "^3.1.0"
     style-attr "^1.0.2"
-    three "github:supermedium/three.js#r90fixMTLLoader"
+    super-animejs "^3.0.0"
+    super-three "^0.102.2"
     three-bmfont-text "^2.1.0"
-    webvr-polyfill "^0.10.5"
+    webvr-polyfill "^0.10.10"
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
@@ -1008,7 +1004,7 @@ braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-browserify-css@^0.8.2:
+browserify-css@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/browserify-css/-/browserify-css-0.8.4.tgz#1e4e2779dcbb072d09beaeb4e6f69501d544d7f3"
   integrity sha1-Hk4nedy7By0Jvq605vaVAdVE1/M=
@@ -1117,14 +1113,14 @@ caniuse-lite@^1.0.30000963:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000966.tgz#f3c6fefacfbfbfb981df6dfa68f2aae7bff41b64"
   integrity sha512-qqLQ/uYrpZmFhPY96VuBkMEo8NhVFBZ9y/Bh+KnvGzGJ5I8hvpIaWlF2pw5gqe4PLAL+ZjsPgMOvoXSpX21Keg==
 
-cardboard-vr-display@^1.0.15:
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/cardboard-vr-display/-/cardboard-vr-display-1.0.15.tgz#00a89259c608afdd097d26ded476817ec2b4daaa"
-  integrity sha512-Im+yzlvZnVHmu//jGMQ3vLQ6ih+GAKX0W+ZWl16oOGRus3c+XRCZFc/Lu6i/t4AGU+cTG4ul6QavSP1MiG03oQ==
+cardboard-vr-display@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/cardboard-vr-display/-/cardboard-vr-display-1.0.16.tgz#f91e2798e8fb70a348599638c6742c72dfeadabc"
+  integrity sha512-GFBWPMH/ixy4Ji014BAO1ryddGHphtJlA8gUR6UdKsOpPjUQukCKpgsx2XIJ5oBlqXnDQOcLVRqBWyuvTI32jQ==
   dependencies:
     gl-preserve-state "^1.0.0"
     nosleep.js "^0.7.0"
-    webvr-polyfill-dpdb "^1.0.10"
+    webvr-polyfill-dpdb "^1.0.11"
 
 chalk@^1.1.3:
   version "1.1.3"
@@ -1589,6 +1585,11 @@ csso@^3.5.0:
   dependencies:
     css-tree "1.0.0-alpha.29"
 
+custom-event-polyfill@^1.0.6:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/custom-event-polyfill/-/custom-event-polyfill-1.0.7.tgz#9bc993ddda937c1a30ccd335614c6c58c4f87aee"
+  integrity sha512-TDDkd5DkaZxZFM8p+1I3yAlvM3rSr1wbrOliG4yJiwinMZN8z/iGL7BTlDkrJcYTmgUSb4ywVCc3ZaUtOtC76w==
+
 d3-binarytree@~0.1:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/d3-binarytree/-/d3-binarytree-0.1.4.tgz#fa322096af6975b6bdf589eb7881aa54815f1a63"
@@ -1664,7 +1665,7 @@ debug@^4.1.0:
   dependencies:
     ms "^2.1.1"
 
-debug@ngokevin/debug#noTimestamp:
+"debug@github:ngokevin/debug#noTimestamp":
   version "2.2.0"
   resolved "https://codeload.github.com/ngokevin/debug/tar.gz/ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"
 
@@ -1756,7 +1757,7 @@ detective@^4.3.1:
     acorn "^5.2.1"
     defined "^1.0.0"
 
-document-register-element@dmarcos/document-register-element#8ccc532b7:
+"document-register-element@github:dmarcos/document-register-element#8ccc532b7f3744be954574caf3072a5fd260ca90":
   version "0.5.4"
   resolved "https://codeload.github.com/dmarcos/document-register-element/tar.gz/8ccc532b7f3744be954574caf3072a5fd260ca90"
 
@@ -4538,6 +4539,16 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
+super-animejs@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/super-animejs/-/super-animejs-3.0.0.tgz#f784fb16dacaa6db6982df829609a13ed29cd299"
+  integrity sha512-sU+zS5zBFIfiZLswckLAiTV1wuWAm3O34sC1SfwFiHv8zVkpzGmntjwjwq6JUd34x/6vSset7gWZRmBiWkrLUA==
+
+super-three@^0.102.2:
+  version "0.102.2"
+  resolved "https://registry.yarnpkg.com/super-three/-/super-three-0.102.2.tgz#54f6e1b9f393e849f7732b8b4ecd19f482ca19a5"
+  integrity sha512-VRFEVE1HB8mAf8tm7UL5kcqvQYrhWbzhpwswCot49hhBPJcwcjTSbIpQ824WpcKv/WyV1V6+mnl8GhT19tzTVA==
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -4644,10 +4655,6 @@ three-pathfinding@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/three-pathfinding/-/three-pathfinding-0.7.0.tgz#bf64ec409bee6e7d8e19be96c7b40ebd7ef6f10d"
   integrity sha512-UwWvzgio1UFe81n5jKHNzB4B+AG3wfZ54OKp7bTb1MHuC3cy6RTtr0dbbiPQQoqxzr+DRArR2DUwQSEknw5+nw==
-
-"three@github:supermedium/three.js#r90fixMTLLoader":
-  version "0.90.0"
-  resolved "https://codeload.github.com/supermedium/three.js/tar.gz/5ef2887ab3621cae54fa129a500424d6caa25b62"
 
 through2@0.6.x:
   version "0.6.5"
@@ -4811,17 +4818,17 @@ vendors@^1.0.0:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.2.tgz#7fcb5eef9f5623b156bcea89ec37d63676f21801"
   integrity sha512-w/hry/368nO21AN9QljsaIhb9ZiZtZARoVH5f3CsFbawdLdayCgKRPup7CggujvySMxx0I91NOyxdVENohprLQ==
 
-webvr-polyfill-dpdb@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/webvr-polyfill-dpdb/-/webvr-polyfill-dpdb-1.0.10.tgz#bb071e5df33c684b54180b09b28ccda94c27ec34"
-  integrity sha512-NYohFPyr3V8jtcNV0TC0TusCKwjXnJJpRa2RZgg6ZqvEsMhF79NVhkLU7EhjYQu0i2MmHcNtPFrpsDvywwpTdQ==
+webvr-polyfill-dpdb@^1.0.11:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/webvr-polyfill-dpdb/-/webvr-polyfill-dpdb-1.0.16.tgz#7f2cf88460c002a5f10ff69b2bf3a5663e0ad9dd"
+  integrity sha512-FCciTtPhwkYYHGL0K67G8k7ZnNVqnEx3u4NVHLJ0+Ya6f2VTZUl/GJpaEo1Id2pBP/2l0RYZ3IGZE4Pe8fRalg==
 
-webvr-polyfill@^0.10.5:
-  version "0.10.8"
-  resolved "https://registry.yarnpkg.com/webvr-polyfill/-/webvr-polyfill-0.10.8.tgz#64f8896a4d07375347217284a66b943c93da3dc9"
-  integrity sha512-Oa89Hb0+NRRgQXxnMxnPgT/1UYItPJfpnwmn7RFmPtGpxcWBXpwXZ0zR0RkfoB77ahlJZ+No+5QejLfOA4CJ8Q==
+webvr-polyfill@^0.10.10:
+  version "0.10.10"
+  resolved "https://registry.yarnpkg.com/webvr-polyfill/-/webvr-polyfill-0.10.10.tgz#f945759a37a2ada57211ed29cf55a80179e74d26"
+  integrity sha512-WdKQ1XR9X2Gj9RUtmr+DajvWBWPva75m1rm0Z7CibR7ZstCm913zHYToxw0p/EK342wAxGfiWKsBmb3Jd5OO0w==
   dependencies:
-    cardboard-vr-display "^1.0.15"
+    cardboard-vr-display "^1.0.16"
 
 which-module@^2.0.0:
   version "2.0.0"

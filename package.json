@@ -38,7 +38,7 @@
     "example/**/*"
   ],
   "dependencies": {
-    "aframe": "^0.8.2",
+    "aframe": "^0.9.1",
     "aframe-extras": "^6.0.0",
     "aframe-forcegraph-component": "^2.16.3",
     "kapsule": "^1.10.0"

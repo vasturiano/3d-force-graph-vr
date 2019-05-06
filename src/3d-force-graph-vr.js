@@ -108,9 +108,8 @@ export default Kapsule({
     state.navInfo.className = 'graph-nav-info';
     state.navInfo.textContent = 'Mouse drag: look, gamepad/arrow/wasd keys: move';
 
-    // Add scene
-    let scene;
-    state.container.appendChild(scene = document.createElement('a-scene'));
+    // Create scene
+    const scene = document.createElement('a-scene');
     scene.setAttribute('embedded', '');
     //scene.setAttribute('stats', null);
 
@@ -132,10 +131,14 @@ export default Kapsule({
     camera.appendChild(cursor = document.createElement('a-cursor'));
     cursor.setAttribute('color', 'lavender');
     cursor.setAttribute('opacity', 0.5);
+    cursor.setAttribute('raycaster', 'objects: ----none----'); // disable cursor raycaster
 
     // Add forcegraph entity
     scene.appendChild(state.forcegraph = document.createElement('a-entity'));
     state.forcegraph.setAttribute('forcegraph', null);
+
+    // attach scene
+    state.container.appendChild(scene);
   },
 
   update(state) {
