@@ -28,6 +28,7 @@ export default Kapsule({
     nodeAutoColorBy: {},
     nodeOpacity: { default: 0.75 },
     nodeThreeObject: {},
+    nodeThreeObjectExtend: { default: false },
     linkSource: { default: 'source' },
     linkTarget: { default: 'target' },
     linkLabel: { default: 'name' },
@@ -43,6 +44,7 @@ export default Kapsule({
     linkCurveRotation: { default: 0 },
     linkMaterial: {},
     linkThreeObject: {},
+    linkThreeObjectExtend: { default: false },
     linkPositionUpdate: {},
     linkDirectionalArrowLength: { default: 0 },
     linkDirectionalArrowColor: {},
@@ -79,18 +81,6 @@ export default Kapsule({
     _destructor: function() {
       this.graphData({ nodes: [], links: []});
     }
-  },
-
-  aliases: { // Prop names supported for backwards compatibility
-    nameField: 'nodeLabel',
-    idField: 'nodeId',
-    valField: 'nodeVal',
-    colorField: 'nodeColor',
-    autoColorBy: 'nodeAutoColorBy',
-    linkSourceField: 'linkSource',
-    linkTargetField: 'linkTarget',
-    linkColorField: 'linkColor',
-    lineOpacity: 'linkOpacity'
   },
 
   init(domNode, state) {
@@ -160,6 +150,7 @@ export default Kapsule({
       'nodeAutoColorBy',
       'nodeOpacity',
       'nodeThreeObject',
+      'nodeThreeObjectExtend',
       'linkSource',
       'linkTarget',
       'linkLabel',
@@ -175,6 +166,7 @@ export default Kapsule({
       'linkCurveRotation',
       'linkMaterial',
       'linkThreeObject',
+      'linkThreeObjectExtend',
       'linkPositionUpdate',
       'linkDirectionalArrowLength',
       'linkDirectionalArrowColor',
