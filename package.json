@@ -33,14 +33,12 @@
     "prepare": "npm run build && npm run minify && npm run build-module"
   },
   "files": [
-    "src/**/*",
-    "dist/**/*",
-    "example/**/*"
+    "dist/**/*"
   ],
   "dependencies": {
     "aframe": "^0.9.2",
     "aframe-extras": "^6.0.0",
-    "aframe-forcegraph-component": "^2.17.0",
+    "aframe-forcegraph-component": "^2.17.1",
     "kapsule": "^1.10.0"
   },
   "devDependencies": {
@@ -51,12 +49,11 @@
     "postcss-nested": "^4.1.2",
     "postcss-simple-vars": "^5.0.2",
     "rimraf": "^2.6.3",
-    "rollup": "^1.12.3",
+    "rollup": "^1.13.1",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-node-resolve": "^5.0.1",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-watch": "^4.3.1",
     "terser": "^4.0.0"
   }
 }
