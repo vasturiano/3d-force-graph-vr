@@ -51,6 +51,7 @@ myGraph(<myDOMElement>)
 ## API reference
 
 ### Data input
+
 | Method | Description | Default |
 | --- | --- | :--: |
 | <b>graphData</b>([<i>data</i>]) | Getter/setter for graph data structure (see below for syntax details). | `{ nodes: [], links: [] }` |
@@ -59,7 +60,8 @@ myGraph(<myDOMElement>)
 | <b>linkSource</b>([<i>str</i>]) | Link object accessor attribute referring to id of source node. | `source` |
 | <b>linkTarget</b>([<i>str</i>]) | Link object accessor attribute referring to id of target node. | `target` |
 
-### Container layout 
+### Container layout
+
 | Method | Description | Default |
 | --- | --- | :--: |
 | <b>width</b>([<i>px</i>]) | Getter/setter for the canvas width. | *&lt;window width&gt;* |
@@ -68,6 +70,7 @@ myGraph(<myDOMElement>)
 | <b>showNavInfo</b>([<i>boolean</i>]) | Getter/setter for whether to show the navigation controls footer info. | `true` |
 
 ### Node styling
+
 | Method | Description | Default |
 | --- | --- | :--: |
 | <b>nodeRelSize</b>([<i>num</i>]) | Getter/setter for the ratio of node sphere volume (cubic px) per value unit. | 4 |
@@ -82,6 +85,7 @@ myGraph(<myDOMElement>)
 | <b>nodeThreeObjectExtend</b>([<i>bool</i>, <i>str</i> or <i>fn</i>]) | Node object accessor function, attribute or a boolean value for whether to replace the default node when using a custom `nodeThreeObject` (`false`) or to extend it (`true`).  | `false` |
 
 ### Link styling
+
 | Method | Description | Default |
 | --- | --- | :--: |
 | <b>linkLabel</b>([<i>str</i> or <i>fn</i>]) | Link object accessor function or attribute for name (shown in label).                                                      | name          |
@@ -109,7 +113,8 @@ myGraph(<myDOMElement>)
 | <b>linkDirectionalParticleColor</b>([<i>str</i> or <i>fn</i>]) | Link object accessor function or attribute for the directional particles color. | `color` |
 | <b>linkDirectionalParticleResolution</b>([<i>num</i>]) | Getter/setter for the geometric resolution of each directional particle, expressed in how many slice segments to divide the circumference. Higher values yield smoother particles. | 4 |
 
-### Force engine configuration 
+### Force engine configuration
+
 | Method | Description | Default |
 | --- | --- | :--: |
 | <b>forceEngine</b>([<i>str</i>]) | Getter/setter for which force-simulation engine to use ([*d3*](https://github.com/vasturiano/d3-force-3d) or [*ngraph*](https://github.com/anvaka/ngraph.forcelayout)). | `d3` |
