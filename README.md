@@ -1,6 +1,9 @@
 # 3D Force-Directed Graph in VR
+========
 
-[![NPM](https://nodei.co/npm/3d-force-graph-vr.png?compact=true)](https://nodei.co/npm/3d-force-graph-vr/)
+[![NPM package][npm-img]][npm-url]
+[![Build Size][build-size-img]][build-size-url]
+[![Dependencies][dependencies-img]][dependencies-url]
 
 <p align="center">
      <a href="https://vasturiano.github.io/3d-force-graph-vr/example/large-graph/"><img width="80%" src="http://gist.github.com/vasturiano/972ca4f3e8e074dacf14d7071aad8ef9/raw/preview.png"></a>
@@ -160,3 +163,10 @@ myGraph(<myDOMElement>)
 ## Giving Back
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url) If this project has helped you and you'd like to contribute back, you can always [buy me a ☕](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url)!
+
+[npm-img]: https://img.shields.io/npm/v/3d-force-graph-vr.svg
+[npm-url]: https://npmjs.org/package/3d-force-graph-vr
+[build-size-img]: https://img.shields.io/bundlephobia/minzip/3d-force-graph-vr.svg
+[build-size-url]: https://bundlephobia.com/result?p=3d-force-graph-vr
+[dependencies-img]: https://img.shields.io/david/vasturiano/3d-force-graph-vr.svg
+[dependencies-url]: https://david-dm.org/vasturiano/3d-force-graph-vr
