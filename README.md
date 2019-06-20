@@ -1,4 +1,4 @@
-# 3D Force-Directed Graph in VR
+3D Force-Directed Graph in VR
 ========
 
 [![NPM package][npm-img]][npm-url]
