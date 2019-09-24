@@ -75,6 +75,10 @@ export default Kapsule({
         ? this // chain based on this object, not the inner aframe component
         : returnVal;
     },
+    d3ReheatSimulation: function(state) {
+      state.forcegraph.components.forcegraph.d3ReheatSimulation();
+      return this;
+    },
     refresh: function(state) {
       state.forcegraph.components.forcegraph.refresh();
       return this;
