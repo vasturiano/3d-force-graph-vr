@@ -701,13 +701,13 @@ aframe-extras@^6.0.1:
   dependencies:
     three-pathfinding "^0.7.0"
 
-aframe-forcegraph-component@^2.19.0:
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-2.19.0.tgz#820c71322832c4f0e235277860990d8edd42bf61"
-  integrity sha512-3TI6ALNNOUcsJLNmHv9iie8CJrBPKUdai4CsEDDHLdw+L6ZGT14QAXoyPqqWM+g7IFdtrxIB6Va2R8SdB5nzfg==
+aframe-forcegraph-component@^2.20.0:
+  version "2.20.0"
+  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-2.20.0.tgz#210b918bed1494d54379fa77d673ddc4e6772422"
+  integrity sha512-x3QzYHaPAAp+6lL04QUhfabp93NkBfXip2F7zD4CEa+hM0odWGPRjQ2pKPknIzfODAYYP0bYOFSJdQ5IgNs5fA==
   dependencies:
     accessor-fn "^1.2.2"
-    three-forcegraph "^1.27.0"
+    three-forcegraph "^1.28.0"
 
 aframe@^0.9.2:
   version "0.9.2"
@@ -3461,10 +3461,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-terser@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-4.3.1.tgz#09820bcb3398299c4b48d9a86aefc65127d0ed65"
-  integrity sha512-pnzH6dnFEsR2aa2SJaKb1uSCl3QmIsJ8dEkj0Fky+2AwMMcC9doMqLOQIH6wVTEKaVfKVvLSk5qxPBEZT9mywg==
+terser@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-4.3.2.tgz#ed830de484b0103652799063e605618e80f97f93"
+  integrity sha512-obxk4x19Zlzj9zY4QeXj9iPCb5W8YGn4v3pn4/fHj0Nw8+R7N02Kvwvz9VpOItCZZD8RC+vnYCDL0gP6FAJ7Xg==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"
@@ -3490,10 +3490,10 @@ three-buffer-vertex-data@^1.0.0:
   dependencies:
     flatten-vertex-data "^1.0.0"
 
-three-forcegraph@^1.27.0:
-  version "1.27.0"
-  resolved "https://registry.yarnpkg.com/three-forcegraph/-/three-forcegraph-1.27.0.tgz#39a99f47b5404eb65506a8b1ef769b352d47d950"
-  integrity sha512-pnI7KER2Phf2s9PGjuKGDXF1f14g42sCZw5jrLJFvAKrOXvKZ2AnH+/tgoESJPoIapvEk0RvbV533g1ODGmtFA==
+three-forcegraph@^1.28.0:
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/three-forcegraph/-/three-forcegraph-1.28.0.tgz#fd59cfca431aa5df62bf7ba0e7f16cd551e21a79"
+  integrity sha512-KFJLS6REaQWfO96GcHUbekNpGFP2dplinqlHnRZSet1WDwI7nLSpDK9u7maYKgrhB+/BkE1+mL8R+/tJ03QDSQ==
   dependencies:
     accessor-fn "^1.2.2"
     d3-force-3d "^2.0.3"
