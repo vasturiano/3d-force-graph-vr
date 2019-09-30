@@ -39,7 +39,7 @@
   "dependencies": {
     "aframe": "^0.9.2",
     "aframe-extras": "^6.0.1",
-    "aframe-forcegraph-component": "^2.21.0",
+    "aframe-forcegraph-component": "^2.21.1",
     "kapsule": "^1.12.1"
   },
   "devDependencies": {

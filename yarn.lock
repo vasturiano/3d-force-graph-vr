@@ -701,10 +701,10 @@ aframe-extras@^6.0.1:
   dependencies:
     three-pathfinding "^0.7.0"
 
-aframe-forcegraph-component@^2.21.0:
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-2.21.0.tgz#84a5af2e1e9f15d784421d8031a70f4c1c44b2ee"
-  integrity sha512-1F65eiBLZbWNxw0PBlr+yZMZBnehtlIt8Z7dQNoO13UNwmTov7DorSEe7Ljq07u+bTHAPf/cqoEy6xXQ28Kcgw==
+aframe-forcegraph-component@^2.21.1:
+  version "2.21.1"
+  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-2.21.1.tgz#ffce595d137582f8edf7f3db64a10d6181cac0b1"
+  integrity sha512-SxL48DfsW4H+rc2MW/jiiiC9QmEPbunTbIHCoN+RsFpP9riBVlMSH+krtmYzGXgI1lBW4n24kWi9UbDibWIdRQ==
   dependencies:
     accessor-fn "^1.2.2"
     three-forcegraph "^1.29.0"

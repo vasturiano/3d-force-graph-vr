@@ -26,7 +26,6 @@ Check out the examples:
 * [Text in links](https://vasturiano.github.io/3d-force-graph-vr/example/text-links/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/text-links/index.html))
 * [Dynamic data changes](https://vasturiano.github.io/3d-force-graph-vr/example/updating/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/updating/index.html))
 * [Node collision detection](https://vasturiano.github.io/3d-force-graph-vr/example/collision-detection/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/collision-detection/index.html))
-* [Emit link particles on demand](https://vasturiano.github.io/3d-force-graph-vr/example/emit-particles/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/emit-particles/index.html))
 
 See also the [WebGL 3D version](https://github.com/vasturiano/3d-force-graph), and the [A-Frame component version (aframe-forcegraph-component)](https://github.com/vasturiano/aframe-forcegraph-component).
 
@@ -117,7 +116,6 @@ myGraph(<myDOMElement>)
 | <b>linkDirectionalParticleWidth</b>([<i>num</i>, <i>str</i> or <i>fn</i>]) | Link object accessor function, attribute or a numeric constant for the directional particles width. Values are rounded to the nearest decimal for indexing purposes. | 0.5 |
 | <b>linkDirectionalParticleColor</b>([<i>str</i> or <i>fn</i>]) | Link object accessor function or attribute for the directional particles color. | `color` |
 | <b>linkDirectionalParticleResolution</b>([<i>num</i>]) | Getter/setter for the geometric resolution of each directional particle, expressed in how many slice segments to divide the circumference. Higher values yield smoother particles. | 4 |
-| <b>emitParticle</b>(<i>link</i>) | An alternative mechanism for generating particles, this method emits a non-cyclical single particle within a specific link. The emitted particle shares the styling (speed, width, color) of the regular particle props. A valid `link` object that is included in `graphData` should be passed as a single parameter. ||
 
 ### Force engine configuration
 
