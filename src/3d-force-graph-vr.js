@@ -67,6 +67,10 @@ export default Kapsule({
   },
 
   methods: {
+    emitParticle: function(state, ...args) {
+      state.forcegraph.components.forcegraph.emitParticle(...args);
+      return this;
+    },
     d3Force: function(state, ...args) {
       const aframeComp = state.forcegraph.components.forcegraph;
       const returnVal = aframeComp.d3Force(...args);
