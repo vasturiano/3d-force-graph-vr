@@ -1,6 +1,6 @@
 {
   "name": "3d-force-graph-vr",
-  "version": "1.29.0",
+  "version": "1.29.1",
   "description": "UI component for a 3D force-directed graph in VR",
   "license": "MIT",
   "unpkg": "dist/3d-force-graph-vr.min.js",
