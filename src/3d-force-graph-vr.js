@@ -136,9 +136,9 @@ export default Kapsule({
     state.container.appendChild(scene);
   },
 
-  update(state) {
-    state.sky.setAttribute('color', state.backgroundColor);
-    state.navInfo.style.display = state.showNavInfo ? null : 'none';
+  update(state, changedProps) {
+    changedProps.hasOwnProperty('backgroundColor') && state.sky.setAttribute('color', state.backgroundColor);
+    changedProps.hasOwnProperty('showNavInfo') && (state.navInfo.style.display = state.showNavInfo ? null : 'none');
 
     const passThroughProps = [
       'jsonUrl',
@@ -195,18 +195,12 @@ export default Kapsule({
 
     const newProps = Object.assign({},
       ...Object.entries(state)
-        .filter(([prop, val]) => passThroughProps.indexOf(prop) != -1 && val !== undefined && val !== null)
-        .map(([key, val]) => ({ [key]: serialize(val) })),
+        .filter(([prop, val]) => changedProps.hasOwnProperty(prop) && passThroughProps.indexOf(prop) != -1 && val !== undefined && val !== null)
+        .map(([key, val]) => ({ [key]: val })),
       ...Object.entries(state.graphData)
-        .map(([key, val]) => ({ [key]: JSON.stringify(val) })) // convert nodes & links to strings
+        .map(([key, val]) => ({ [key]: val })) // pass nodes & links as separate props
     );
 
-    state.forcegraph.setAttribute('forcegraph', newProps, true);
-
-    //
-
-    function serialize(p) {
-      return p instanceof Function ? p.toString() : p; // convert functions to strings
-    }
+    state.forcegraph.setAttribute('forcegraph', newProps);
   }
 });
