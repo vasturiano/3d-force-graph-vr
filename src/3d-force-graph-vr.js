@@ -67,6 +67,14 @@ export default Kapsule({
   },
 
   methods: {
+    emitParticle: function(state, ...args) {
+      const aframeComp = state.forcegraph.components.forcegraph;
+      const returnVal = aframeComp.emitParticle(...args);
+
+      return returnVal === aframeComp
+        ? this // chain based on this object, not the inner aframe component
+        : returnVal;
+    },
     d3Force: function(state, ...args) {
       const aframeComp = state.forcegraph.components.forcegraph;
       const returnVal = aframeComp.d3Force(...args);
