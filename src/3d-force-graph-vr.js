@@ -67,30 +67,22 @@ export default Kapsule({
   },
 
   methods: {
-    emitParticle: function(state, ...args) {
-      const aframeComp = state.forcegraph.components.forcegraph;
-      const returnVal = aframeComp.emitParticle(...args);
+    // pass-through methods
+    ...[
+      'emitParticle',
+      'd3Force',
+      'd3ReheatSimulation',
+      'refresh'
+    ].map(method => ({
+      [method]: function(state, ...args) {
+        const aframeComp = state.forcegraph.components.forcegraph;
+        const returnVal = aframeComp[method](...args);
 
-      return returnVal === aframeComp
-        ? this // chain based on this object, not the inner aframe component
-        : returnVal;
-    },
-    d3Force: function(state, ...args) {
-      const aframeComp = state.forcegraph.components.forcegraph;
-      const returnVal = aframeComp.d3Force(...args);
-
-      return returnVal === aframeComp
-        ? this // chain based on this object, not the inner aframe component
-        : returnVal;
-    },
-    d3ReheatSimulation: function(state) {
-      state.forcegraph.components.forcegraph.d3ReheatSimulation();
-      return this;
-    },
-    refresh: function(state) {
-      state.forcegraph.components.forcegraph.refresh();
-      return this;
-    },
+        return returnVal === aframeComp
+          ? this // chain based on this object, not the inner aframe component
+          : returnVal;
+      }
+    })),
     _destructor: function() {
       this.graphData({ nodes: [], links: []});
     }
