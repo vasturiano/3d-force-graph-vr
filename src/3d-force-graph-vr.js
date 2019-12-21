@@ -109,6 +109,7 @@ export default Kapsule({
     //scene.setAttribute('stats', null);
 
     scene.appendChild(state.sky = document.createElement('a-sky'));
+    state.sky.setAttribute('radius', 5000);
 
     // Add camera and cursor
     let cameraG;
