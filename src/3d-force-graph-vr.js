@@ -68,13 +68,13 @@ export default Kapsule({
 
   methods: {
     // pass-through methods
-    ...[
+    ...Object.assign({}, ...[
       'emitParticle',
       'd3Force',
       'd3ReheatSimulation',
       'refresh'
     ].map(method => ({
-      [method]: function(state, ...args) {
+      [method]: function (state, ...args) {
         const aframeComp = state.forcegraph.components.forcegraph;
         const returnVal = aframeComp[method](...args);
 
@@ -82,9 +82,9 @@ export default Kapsule({
           ? this // chain based on this object, not the inner aframe component
           : returnVal;
       }
-    })),
+    }))),
     _destructor: function() {
-      this.graphData({ nodes: [], links: []});
+      this.graphData({ nodes: [], links: [] });
     }
   },
 
