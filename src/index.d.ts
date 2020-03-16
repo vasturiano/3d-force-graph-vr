@@ -8,7 +8,7 @@ type ObjAccessor<T> = Accessor<object, T>;
 // don't surface these internal props from inner ThreeForceGraph
 type ExcludedInnerProps = 'onLoading' | 'onFinishLoading' | 'onUpdate' | 'onFinishUpdate' | 'tickFrame';
 
-export interface ForceGraph3DGenericInstance<ChainableInstance>
+export interface ForceGraphVRGenericInstance<ChainableInstance>
     extends Omit<ThreeForceGraphGeneric<ChainableInstance>, ExcludedInnerProps> {
   (element: HTMLElement): ChainableInstance;
   _destructor(): void;
@@ -38,8 +38,8 @@ export interface ForceGraph3DGenericInstance<ChainableInstance>
   onLinkCenterHover(callback: (link: object | null, previousLink: object | null) => void): ChainableInstance;
 }
 
-export type ForceGraph3DInstance = ForceGraph3DGenericInstance<ForceGraph3DInstance>;
+export type ForceGraphVRInstance = ForceGraphVRGenericInstance<ForceGraphVRInstance>;
 
-declare function ForceGraph3D(configOptions?: ConfigOptions): ForceGraph3DInstance;
+declare function ForceGraphVR(configOptions?: ConfigOptions): ForceGraphVRInstance;
 
-export default ForceGraph3D;
+export default ForceGraphVR;
