@@ -6,7 +6,7 @@ type Accessor<In, Out> = Out | string | ((obj: In) => Out);
 type ObjAccessor<T> = Accessor<object, T>;
 
 // don't surface these internal props from inner ThreeForceGraph
-type ExcludedInnerProps = 'onLoading' | 'onFinishLoading' | 'onUpdate' | 'onFinishUpdate' | 'tickFrame';
+type ExcludedInnerProps = 'onLoading' | 'onFinishLoading' | 'onUpdate' | 'onFinishUpdate' | 'tickFrame' | 'd3AlphaTarget';
 
 export interface ForceGraphVRGenericInstance<ChainableInstance>
     extends Omit<ThreeForceGraphGeneric<ChainableInstance>, ExcludedInnerProps> {

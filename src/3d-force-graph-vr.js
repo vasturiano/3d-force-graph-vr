@@ -59,6 +59,7 @@ export default Kapsule({
     linkDirectionalParticleColor: {},
     linkDirectionalParticleResolution: { default: 4 }, // how many slice segments in the particle sphere's circumference
     forceEngine: { default: 'd3' }, // d3 or ngraph
+    d3AlphaMin: { default: 0 },
     d3AlphaDecay: { default: 0.0228 },
     d3VelocityDecay: { default: 0.4 },
     warmupTicks: { default: 0 }, // how many times to tick the force engine at init before starting to render
@@ -189,6 +190,7 @@ export default Kapsule({
       'linkDirectionalParticleColor',
       'linkDirectionalParticleResolution',
       'forceEngine',
+      'd3AlphaMin',
       'd3AlphaDecay',
       'd3VelocityDecay',
       'warmupTicks',
