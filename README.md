@@ -146,6 +146,10 @@ myGraph(<myDOMElement>)
 | <b>onEngineStop</b>(<i>fn</i>) | Callback function invoked when the simulation engine stops and the layout is frozen. | - |
 | <b>refresh</b>() | Redraws all the nodes/links. |
 
+### Utility
+
+| <b>getGraphBbox</b>() | Returns the current bounding box of all the nodes in the graph, formatted as `{ x: [<num>, <num>], y: [<num>, <num>], z: [<num>, <num>] }`. ||
+
 ### Input JSON syntax
 ```
 {

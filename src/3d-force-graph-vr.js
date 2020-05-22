@@ -72,6 +72,7 @@ export default Kapsule({
   methods: {
     // pass-through methods
     ...Object.assign({}, ...[
+      'getGraphBbox',
       'emitParticle',
       'd3Force',
       'd3ReheatSimulation',
