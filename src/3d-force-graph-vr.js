@@ -62,6 +62,7 @@ export default Kapsule({
     d3AlphaMin: { default: 0 },
     d3AlphaDecay: { default: 0.0228 },
     d3VelocityDecay: { default: 0.4 },
+    ngraphPhysics: {},
     warmupTicks: { default: 0 }, // how many times to tick the force engine at init before starting to render
     cooldownTicks: {},
     cooldownTime: { default: 15000 }, // ms
@@ -194,6 +195,7 @@ export default Kapsule({
       'd3AlphaMin',
       'd3AlphaDecay',
       'd3VelocityDecay',
+      'ngraphPhysics',
       'warmupTicks',
       'cooldownTicks',
       'cooldownTime',
