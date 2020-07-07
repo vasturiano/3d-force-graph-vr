@@ -868,13 +868,13 @@ aframe-extras@^6.1.0:
   dependencies:
     three-pathfinding "^0.7.0"
 
-aframe-forcegraph-component@^2.27.0:
-  version "2.27.0"
-  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-2.27.0.tgz#128b8515bdb5e03eafa1a85b2de6de3881874e71"
-  integrity sha512-dl54X7Yp7YMr3+1mDXqOqOLcDfd+qqUcu8lhkVFA3cndHkkW92CndtQFTbLKBb4GvOJraO8OJKLg3y6e330TOQ==
+aframe-forcegraph-component@^2.27.1:
+  version "2.27.1"
+  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-2.27.1.tgz#c66d1d680cc2cd0e1bd0fe2b4af46831d77ff90a"
+  integrity sha512-eB7oSIpCg413++I8Ce3oMrG/T3Or48Xwyy5+ildaeYKlI0Tf7M1C7h3l6mGR1WUalB7kxgSbJPG18+ZcLqQxjg==
   dependencies:
     accessor-fn "^1.3.0"
-    three-forcegraph "^1.36.0"
+    three-forcegraph "^1.36.1"
 
 aframe@^1.0.4:
   version "1.0.4"
@@ -3131,10 +3131,10 @@ three-buffer-vertex-data@dmarcos/three-buffer-vertex-data#69378fc58daf27d3b1d930
   dependencies:
     flatten-vertex-data "^1.0.0"
 
-three-forcegraph@^1.36.0:
-  version "1.36.0"
-  resolved "https://registry.yarnpkg.com/three-forcegraph/-/three-forcegraph-1.36.0.tgz#4f97a5cca9a6ee4712a50ba5e345fd0fbfb4e910"
-  integrity sha512-a+2fsZVHIAHaYeCWkDxpOwMCEWOmvJ+Yd9zbc2Op6QS3rnxpWIoZst2kWeNqwUpRn0qrFZ8nUaazE92P+ciUgw==
+three-forcegraph@^1.36.1:
+  version "1.36.1"
+  resolved "https://registry.yarnpkg.com/three-forcegraph/-/three-forcegraph-1.36.1.tgz#820af9cace6582ddd3923a81aea06e13df0bd72a"
+  integrity sha512-ZrmF9Xf3LKnWVrNin0zAap07r7WsxOobacSZsl36+03gkME7aYsnQViLhEorhaVmtQ62MG+I7jn++n9H8JqS4w==
   dependencies:
     accessor-fn "^1.3.0"
     d3-array "^2.4.0"
