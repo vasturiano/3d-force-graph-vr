@@ -3,6 +3,7 @@ import 'aframe-extras';
 import 'aframe-forcegraph-component';
 
 import Kapsule from 'kapsule';
+import accessorFn from 'accessor-fn';
 
 //
 
@@ -24,7 +25,8 @@ export default Kapsule({
     nodeId: { default: 'id' },
     nodeLabel: { default: 'name' },
     nodeDesc: { default: 'desc' },
-    onNodeCenterHover: {},
+    onNodeHover: {},
+    onNodeClick: {},
     nodeVal: { default: 'val' },
     nodeResolution: { default: 8 }, // how many slice segments in the sphere's circumference
     nodeVisibility: { default: true },
@@ -37,8 +39,8 @@ export default Kapsule({
     linkTarget: { default: 'target' },
     linkLabel: { default: 'name' },
     linkDesc: { default: 'desc' },
-    onLinkCenterHover: {},
-    linkHoverPrecision: { default: 2 },
+    onLinkHover: {},
+    onLinkClick: {},
     linkVisibility: { default: true },
     linkColor: { default: 'color' },
     linkAutoColorBy: {},
@@ -116,9 +118,9 @@ export default Kapsule({
     //scene.setAttribute('stats', null);
 
     scene.appendChild(state.sky = document.createElement('a-sky'));
-    state.sky.setAttribute('radius', 5000);
+    state.sky.setAttribute('radius', 3000);
 
-    // Add camera and cursor
+    // Add camera
     let cameraG;
     scene.appendChild(cameraG = document.createElement('a-entity'));
     cameraG.setAttribute('position', '0 0 300');
@@ -128,13 +130,45 @@ export default Kapsule({
     cameraG.appendChild(camera = document.createElement('a-entity'));
     camera.setAttribute('camera', '');
     camera.setAttribute('position', '0 0.001 0');
-    camera.setAttribute('look-controls', 'reverseMouseDrag: false; pointerLockEnabled: true');
+    camera.setAttribute('look-controls', 'reverseMouseDrag: false; pointerLockEnabled: false');
 
-    let cursor;
-    camera.appendChild(cursor = document.createElement('a-cursor'));
-    cursor.setAttribute('color', 'lavender');
-    cursor.setAttribute('opacity', 0.5);
-    cursor.setAttribute('raycaster', 'objects: ----none----'); // disable cursor raycaster
+    // display cursor in middle of screen
+    // let cursor;
+    // camera.appendChild(cursor = document.createElement('a-cursor'));
+    // cursor.setAttribute('color', 'lavender');
+    // cursor.setAttribute('opacity', 0.5);
+    // cursor.setAttribute('raycaster', 'objects: ----none----'); // disable cursor raycaster
+
+    // Setup tooltip
+    let tooltipEl;
+    camera.appendChild(tooltipEl = document.createElement('a-text'));
+    tooltipEl.setAttribute('position', '0 -0.3 -1');
+    tooltipEl.setAttribute('width', 2);
+    tooltipEl.setAttribute('align', 'center');
+    tooltipEl.setAttribute('color', 'lavender');
+    tooltipEl.setAttribute('value', '');
+
+    // Setup sub-tooltip
+    let subTooltipEl;
+    camera.appendChild(subTooltipEl = document.createElement('a-text'));
+    subTooltipEl.setAttribute('position', '0 -0.4 -1');
+    subTooltipEl.setAttribute('width', 1.3);
+    subTooltipEl.setAttribute('align', 'center');
+    subTooltipEl.setAttribute('color', 'lavender');
+    subTooltipEl.setAttribute('value', '');
+
+    // Setup mouse cursor and laser raycasting controls
+    let mouseCursor;
+    scene.appendChild(mouseCursor = document.createElement('a-entity'));
+    mouseCursor.setAttribute('cursor', 'rayOrigin: mouse; mouseCursorStylesEnabled: true');
+    mouseCursor.setAttribute('raycaster', 'objects: [forcegraph]');
+
+    ['left', 'right'].forEach(hand => {
+      let laser;
+      scene.appendChild(laser = document.createElement('a-entity'));
+      laser.setAttribute('laser-controls', `hand: ${hand}`);
+      laser.setAttribute('raycaster', 'objects: [forcegraph]; lineColor: steelblue; lineOpacity: 0.85');
+    });
 
     // Add forcegraph entity
     scene.appendChild(state.forcegraph = document.createElement('a-entity'));
@@ -142,6 +176,18 @@ export default Kapsule({
 
     // attach scene
     state.container.appendChild(scene);
+
+    // update tooltips
+    state.forcegraph.setAttribute('forcegraph', Object.assign(...['node', 'link'].map(t => {
+      const cct = { node: 'Node', link: 'Link' }[t]; // camel-case version
+      return {[`on${cct}Hover`]: (obj, prevObj) => {
+        const label = obj ? accessorFn(state[`${t}Label`])(obj) || '' : '';
+        const subLabel = obj ? accessorFn(state[`${t}Desc`])(obj) || '' : '';
+        tooltipEl.setAttribute('value', label);
+        subTooltipEl.setAttribute('value', subLabel);
+        state[`on${cct}Hover`] && state[`on${cct}Hover`](obj, prevObj);
+      }};
+    })));
   },
 
   update(state, changedProps) {
@@ -157,9 +203,7 @@ export default Kapsule({
       'onDagError',
       'nodeRelSize',
       'nodeId',
-      'nodeLabel',
-      'nodeDesc',
-      'onNodeCenterHover',
+      'onNodeClick',
       'nodeVal',
       'nodeResolution',
       'nodeVisibility',
@@ -170,10 +214,7 @@ export default Kapsule({
       'nodeThreeObjectExtend',
       'linkSource',
       'linkTarget',
-      'linkLabel',
-      'linkDesc',
-      'onLinkCenterHover',
-      'linkHoverPrecision',
+      'onLinkClick',
       'linkVisibility',
       'linkColor',
       'linkAutoColorBy',
@@ -209,7 +250,7 @@ export default Kapsule({
 
     const newProps = Object.assign({},
       ...Object.entries(state)
-        .filter(([prop, val]) => changedProps.hasOwnProperty(prop) && passThroughProps.indexOf(prop) != -1 && val !== undefined && val !== null)
+        .filter(([prop, val]) => changedProps.hasOwnProperty(prop) && passThroughProps.indexOf(prop) !== -1 && val !== undefined && val !== null)
         .map(([key, val]) => ({ [key]: val })),
       ...Object.entries(state.graphData)
         .map(([key, val]) => ({ [key]: val })) // pass nodes & links as separate props
