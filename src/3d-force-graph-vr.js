@@ -165,7 +165,7 @@ export default Kapsule({
 
     ['left', 'right'].forEach(hand => {
       let laser;
-      cameraG.appendChild(laser = document.createElement('a-entity'));
+      camera.appendChild(laser = document.createElement('a-entity'));
       laser.setAttribute('laser-controls', `hand: ${hand}`);
       laser.setAttribute('raycaster', 'objects: [forcegraph]; lineColor: steelblue; lineOpacity: 0.85');
     });
