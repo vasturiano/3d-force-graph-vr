@@ -116,9 +116,23 @@ export default Kapsule({
     const scene = document.createElement('a-scene');
     scene.setAttribute('embedded', '');
     //scene.setAttribute('stats', null);
+    state.container.appendChild(scene); // attach scene
 
     scene.appendChild(state.sky = document.createElement('a-sky'));
     state.sky.setAttribute('radius', 3000);
+
+    // Setup mouse cursor and laser raycasting controls
+    let mouseCursor;
+    scene.appendChild(mouseCursor = document.createElement('a-entity'));
+    mouseCursor.setAttribute('cursor', 'rayOrigin: mouse; mouseCursorStylesEnabled: true');
+    mouseCursor.setAttribute('raycaster', 'objects: [forcegraph]');
+
+    ['left', 'right'].forEach(hand => {
+      let laser;
+      scene.appendChild(laser = document.createElement('a-entity'));
+      laser.setAttribute('laser-controls', `hand: ${hand}`);
+      laser.setAttribute('raycaster', 'objects: [forcegraph]; lineColor: steelblue; lineOpacity: 0.85');
+    });
 
     // Add camera
     let cameraG;
@@ -157,25 +171,9 @@ export default Kapsule({
     subTooltipEl.setAttribute('color', 'lavender');
     subTooltipEl.setAttribute('value', '');
 
-    // Setup mouse cursor and laser raycasting controls
-    let mouseCursor;
-    scene.appendChild(mouseCursor = document.createElement('a-entity'));
-    mouseCursor.setAttribute('cursor', 'rayOrigin: mouse; mouseCursorStylesEnabled: true');
-    mouseCursor.setAttribute('raycaster', 'objects: [forcegraph]');
-
-    ['left', 'right'].forEach(hand => {
-      let laser;
-      scene.appendChild(laser = document.createElement('a-entity'));
-      laser.setAttribute('laser-controls', `hand: ${hand}`);
-      laser.setAttribute('raycaster', 'objects: [forcegraph]; lineColor: steelblue; lineOpacity: 0.85');
-    });
-
     // Add forcegraph entity
     scene.appendChild(state.forcegraph = document.createElement('a-entity'));
     state.forcegraph.setAttribute('forcegraph', null);
-
-    // attach scene
-    state.container.appendChild(scene);
 
     // update tooltips
     state.forcegraph.setAttribute('forcegraph', Object.assign(...['node', 'link'].map(t => {
