@@ -161,13 +161,13 @@ export default Kapsule({
     let mouseCursor;
     scene.appendChild(mouseCursor = document.createElement('a-entity'));
     mouseCursor.setAttribute('cursor', 'rayOrigin: mouse; mouseCursorStylesEnabled: true');
-    mouseCursor.setAttribute('raycaster', 'objects: [forcegraph]');
+    mouseCursor.setAttribute('raycaster', 'objects: [forcegraph]; interval: 100');
 
     ['left', 'right'].forEach(hand => {
       let laser;
       cameraG.appendChild(laser = document.createElement('a-entity'));
       laser.setAttribute('laser-controls', `hand: ${hand}`);
-      laser.setAttribute('raycaster', 'objects: [forcegraph]; lineColor: steelblue; lineOpacity: 0.85');
+      laser.setAttribute('raycaster', 'objects: [forcegraph]; interval: 100; lineColor: steelblue; lineOpacity: 0.85');
     });
 
     // Add forcegraph entity
