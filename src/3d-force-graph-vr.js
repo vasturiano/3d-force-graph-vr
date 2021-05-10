@@ -129,7 +129,7 @@ export default Kapsule({
     let camera;
     cameraG.appendChild(camera = document.createElement('a-entity'));
     camera.setAttribute('camera', '');
-    camera.setAttribute('position', '0 0.001 0');
+    camera.setAttribute('position', '0 0 0');
     camera.setAttribute('look-controls', 'reverseMouseDrag: false; pointerLockEnabled: false');
 
     // display cursor in middle of screen
@@ -165,7 +165,7 @@ export default Kapsule({
 
     ['left', 'right'].forEach(hand => {
       let laser;
-      camera.appendChild(laser = document.createElement('a-entity'));
+      cameraG.appendChild(laser = document.createElement('a-entity'));
       laser.setAttribute('laser-controls', `hand: ${hand}`);
       laser.setAttribute('raycaster', 'objects: [forcegraph]; lineColor: steelblue; lineOpacity: 0.85');
     });
