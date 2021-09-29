@@ -158,16 +158,19 @@ export default Kapsule({
     subTooltipEl.setAttribute('value', '');
 
     // Setup mouse cursor and laser raycasting controls
+    state.raycasterEls = [];
     let mouseCursor;
     scene.appendChild(mouseCursor = document.createElement('a-entity'));
     mouseCursor.setAttribute('cursor', 'rayOrigin: mouse; mouseCursorStylesEnabled: true');
     mouseCursor.setAttribute('raycaster', 'objects: [forcegraph]; interval: 100');
+    state.raycasterEls.push(mouseCursor);
 
     ['left', 'right'].forEach(hand => {
       let laser;
       cameraG.appendChild(laser = document.createElement('a-entity'));
       laser.setAttribute('laser-controls', `hand: ${hand}`);
       laser.setAttribute('raycaster', 'objects: [forcegraph]; interval: 100; lineColor: steelblue; lineOpacity: 0.85');
+      state.raycasterEls.push(laser);
     });
 
     // Add forcegraph entity
@@ -193,6 +196,12 @@ export default Kapsule({
   update(state, changedProps) {
     changedProps.hasOwnProperty('backgroundColor') && state.sky.setAttribute('color', state.backgroundColor);
     changedProps.hasOwnProperty('showNavInfo') && (state.navInfo.style.display = state.showNavInfo ? null : 'none');
+
+    // deactivate raycasting against the forcegraph if no interaction props are set
+    const isInteractive = ['onNodeHover', 'onLinkHover', 'onNodeClick', 'onLinkClick'].some(p => state[p]);
+    state.raycasterEls.forEach(el => el.setAttribute('raycaster',
+      isInteractive ? 'objects: [forcegraph]; interval: 100' : 'objects: __none__')
+    );
 
     const passThroughProps = [
       'jsonUrl',
