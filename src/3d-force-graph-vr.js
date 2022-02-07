@@ -10,8 +10,8 @@ import accessorFn from 'accessor-fn';
 export default Kapsule({
 
   props: {
-    width: { default: window.innerWidth, triggerUpdate: false, onChange(width, state) { if(state.container) state.container.style.width = width }},
-    height: { default: window.innerHeight, triggerUpdate: false, onChange(height, state) { if(state.container) state.container.style.height = height }},
+    width: { default: window.innerWidth, triggerUpdate: false, onChange(width, state) { if(state.container) state.container.style.width = `${width}px` }},
+    height: { default: window.innerHeight, triggerUpdate: false, onChange(height, state) { if(state.container) state.container.style.height = `${height}px` }},
     jsonUrl: {},
     graphData: { default: { nodes: [], links: [] }},
     numDimensions: { default: 3 },
@@ -104,8 +104,8 @@ export default Kapsule({
     state.container = document.createElement('div');
     domNode.appendChild(state.container);
     state.container.style.position = 'relative';
-    state.container.style.width = state.width;
-    state.container.style.height = state.height;
+    state.container.style.width = `${state.width}px`;
+    state.container.style.height = `${state.height}px`;
 
     // Add nav info section
     state.container.appendChild(state.navInfo = document.createElement('div'));
