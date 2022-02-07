@@ -198,7 +198,9 @@ export default Kapsule({
     changedProps.hasOwnProperty('showNavInfo') && (state.navInfo.style.display = state.showNavInfo ? null : 'none');
 
     // deactivate raycasting against the forcegraph if no interaction props are set
-    const isInteractive = ['onNodeHover', 'onLinkHover', 'onNodeClick', 'onLinkClick'].some(p => state[p]);
+    const isInteractive = ['onNodeHover', 'onLinkHover', 'onNodeClick', 'onLinkClick'].some(p => state[p])
+      || ['nodeLabel', 'linkLabel'].some(p => state[p] !== 'name')
+      || ['nodeDesc', 'linkDesc'].some(p => state[p] !== 'desc');
     state.raycasterEls.forEach(el => el.setAttribute('raycaster',
       isInteractive ? 'objects: [forcegraph]; interval: 100' : 'objects: __none__')
     );
