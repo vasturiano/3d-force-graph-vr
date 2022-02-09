@@ -12,6 +12,10 @@
 A web component to represent a graph data structure in virtual reality using a force-directed iterative layout.
 Uses [A-Frame](https://aframe.io/) for VR rendering and [d3-force-3d](https://github.com/vasturiano/d3-force-3d) for the layout physics engine.
 
+See also the [AR version](https://github.com/vasturiano/3d-force-graph-ar), [WebGL 3D version](https://github.com/vasturiano/3d-force-graph), and the [A-Frame component version (aframe-forcegraph-component)](https://github.com/vasturiano/aframe-forcegraph-component).
+
+And check out the [React bindings](https://github.com/vasturiano/react-force-graph).
+
 Check out the examples:
 * [Basic](https://vasturiano.github.io/3d-force-graph-vr/example/basic/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/basic/index.html))
 * [Asynchronous load](https://vasturiano.github.io/3d-force-graph-vr/example/async-load/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/async-load/index.html))
@@ -27,10 +31,6 @@ Check out the examples:
 * [Dynamic data changes](https://vasturiano.github.io/3d-force-graph-vr/example/updating/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/updating/index.html))
 * [Node collision detection](https://vasturiano.github.io/3d-force-graph-vr/example/collision-detection/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/collision-detection/index.html))
 * [Emit link particles on demand](https://vasturiano.github.io/3d-force-graph-vr/example/emit-particles/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/emit-particles/index.html))
-
-See also the [AR version](https://github.com/vasturiano/3d-force-graph-ar), [WebGL 3D version](https://github.com/vasturiano/3d-force-graph), and the [A-Frame component version (aframe-forcegraph-component)](https://github.com/vasturiano/aframe-forcegraph-component).
-
-And check out the [React bindings](https://github.com/vasturiano/react-force-graph).
 
 ## Quick start
 
