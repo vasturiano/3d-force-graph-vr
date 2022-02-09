@@ -16,7 +16,8 @@ See also the [AR version](https://github.com/vasturiano/3d-force-graph-ar), [Web
 
 And check out the [React bindings](https://github.com/vasturiano/react-force-graph).
 
-Check out the examples:
+## Examples
+
 * [Basic](https://vasturiano.github.io/3d-force-graph-vr/example/basic/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/basic/index.html))
 * [Asynchronous load](https://vasturiano.github.io/3d-force-graph-vr/example/async-load/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/async-load/index.html))
 * [Larger graph (~4k elements)](https://vasturiano.github.io/3d-force-graph-vr/example/large-graph/) ([source](https://github.com/vasturiano/3d-force-graph-vr/blob/master/example/large-graph/index.html))
