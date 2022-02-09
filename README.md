@@ -3,7 +3,7 @@
 
 [![NPM package][npm-img]][npm-url]
 [![Build Size][build-size-img]][build-size-url]
-[![Dependencies][dependencies-img]][dependencies-url]
+[![NPM Downloads][npm-downloads-img]][npm-downloads-url]
 
 <p align="center">
      <a href="https://vasturiano.github.io/3d-force-graph-vr/example/large-graph/"><img width="80%" src="http://gist.github.com/vasturiano/972ca4f3e8e074dacf14d7071aad8ef9/raw/preview.png"></a>
@@ -34,22 +34,22 @@ And check out the [React bindings](https://github.com/vasturiano/react-force-gra
 
 ## Quick start
 
-```
+```js
 import ForceGraphVR from '3d-force-graph-vr';
 ```
 or
-```
-var ForceGraphVR = require('3d-force-graph-vr');
+```js
+const ForceGraphVR = require('3d-force-graph-vr');
 ```
 or even
-```
+```html
 <script src="//unpkg.com/3d-force-graph-vr"></script>
 ```
 then
-```
-var myGraph = ForceGraphVR();
-myGraph(<myDOMElement>)
-    .graphData(<myData>);
+```js
+const myGraph = ForceGraphVR();
+myGraph(myDOMElement)
+  .graphData(myData);
 ```
 
 ## API reference
@@ -155,7 +155,7 @@ myGraph(<myDOMElement>)
 | <b>getGraphBbox</b>() | Returns the current bounding box of all the nodes in the graph, formatted as `{ x: [<num>, <num>], y: [<num>, <num>], z: [<num>, <num>] }`. ||
 
 ### Input JSON syntax
-```
+```json
 {
     "nodes": [ 
         { 
@@ -168,14 +168,14 @@ myGraph(<myDOMElement>)
           "name": "name2",
           "val": 10 
         },
-        (...)
+        ...
     ],
     "links": [
         {
             "source": "id1",
             "target": "id2"
         },
-        (...)
+        ...
     ]
 }
 ```
@@ -184,9 +184,9 @@ myGraph(<myDOMElement>)
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url) If this project has helped you and you'd like to contribute back, you can always [buy me a ☕](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=L398E7PKP47E8&currency_code=USD&source=url)!
 
-[npm-img]: https://img.shields.io/npm/v/3d-force-graph-vr.svg
+[npm-img]: https://img.shields.io/npm/v/3d-force-graph-vr
 [npm-url]: https://npmjs.org/package/3d-force-graph-vr
-[build-size-img]: https://img.shields.io/bundlephobia/minzip/3d-force-graph-vr.svg
+[build-size-img]: https://img.shields.io/bundlephobia/minzip/3d-force-graph-vr
 [build-size-url]: https://bundlephobia.com/result?p=3d-force-graph-vr
-[dependencies-img]: https://img.shields.io/david/vasturiano/3d-force-graph-vr.svg
-[dependencies-url]: https://david-dm.org/vasturiano/3d-force-graph-vr
+[npm-downloads-img]: https://img.shields.io/npm/dt/3d-force-graph-vr
+[npm-downloads-url]: https://www.npmtrends.com/3d-force-graph-vr
