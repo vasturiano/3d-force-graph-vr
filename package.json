@@ -40,7 +40,8 @@
     "aframe": "^1.2",
     "aframe-extras": "^6.1",
     "aframe-forcegraph-component": "^3.0",
-    "kapsule": "^1.13"
+    "kapsule": "^1.13",
+    "polished": "^4.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",

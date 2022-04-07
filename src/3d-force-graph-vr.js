@@ -4,6 +4,7 @@ import 'aframe-forcegraph-component';
 
 import Kapsule from 'kapsule';
 import accessorFn from 'accessor-fn';
+import { parseToRgb, opacify } from 'polished';
 
 //
 
@@ -194,7 +195,12 @@ export default Kapsule({
   },
 
   update(state, changedProps) {
-    changedProps.hasOwnProperty('backgroundColor') && state.sky.setAttribute('color', state.backgroundColor);
+    if (changedProps.hasOwnProperty('backgroundColor')) {
+      let alpha = parseToRgb(state.backgroundColor).alpha;
+      if (alpha === undefined) alpha = 1;
+      state.sky.setAttribute('color', opacify(1, state.backgroundColor));
+      state.sky.setAttribute('opacity', alpha);
+    }
     changedProps.hasOwnProperty('showNavInfo') && (state.navInfo.style.display = state.showNavInfo ? null : 'none');
 
     // deactivate raycasting against the forcegraph if no interaction props are set
