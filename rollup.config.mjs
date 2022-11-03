@@ -4,7 +4,9 @@ import postCss from 'rollup-plugin-postcss';
 import babel from '@rollup/plugin-babel';
 import { terser } from "rollup-plugin-terser";
 import dts from 'rollup-plugin-dts';
-import { name, homepage, version, dependencies } from './package.json';
+
+import pkg from './package.json' assert { type: 'json' };
+const { name, homepage, version, dependencies } = pkg;
 
 const umdConf = {
   globals: { three: 'THREE' }, // a-frame exposes three as global
