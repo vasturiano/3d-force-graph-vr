@@ -2,7 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonJs from '@rollup/plugin-commonjs';
 import postCss from 'rollup-plugin-postcss';
 import babel from '@rollup/plugin-babel';
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import dts from 'rollup-plugin-dts';
 
 import pkg from './package.json' assert { type: 'json' };
