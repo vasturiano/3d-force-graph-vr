@@ -38,11 +38,7 @@ And check out the [React bindings](https://github.com/vasturiano/react-force-gra
 ```js
 import ForceGraphVR from '3d-force-graph-vr';
 ```
-or
-```js
-const ForceGraphVR = require('3d-force-graph-vr');
-```
-or even
+or using a script tag
 ```html
 <script src="//unpkg.com/3d-force-graph-vr"></script>
 ```
