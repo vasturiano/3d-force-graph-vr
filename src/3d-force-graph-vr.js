@@ -125,13 +125,14 @@ export default Kapsule({
     let cameraG;
     scene.appendChild(cameraG = document.createElement('a-entity'));
     cameraG.setAttribute('position', '0 0 300');
-    cameraG.setAttribute('movement-controls', 'fly: true; speed: 7');
 
     let camera;
     cameraG.appendChild(camera = document.createElement('a-entity'));
     camera.setAttribute('camera', '');
     camera.setAttribute('position', '0 0 0');
     camera.setAttribute('look-controls', 'reverseMouseDrag: false; pointerLockEnabled: false');
+    camera.setAttribute('wasd-controls', 'fly: true; acceleration: 700');
+
 
     // display cursor in middle of screen
     // let cursor;
