@@ -129,7 +129,7 @@ export default Kapsule({
     let cameraG;
     scene.appendChild(cameraG = document.createElement('a-entity'));
     cameraG.setAttribute('position', '0 0 300');
-    cameraG.setAttribute('movement-controls', 'controls: gamepad, touch; fly: true; speed: 7');
+    cameraG.setAttribute('movement-controls', 'controls: gamepad; fly: true; speed: 7');
 
     let camera;
     cameraG.appendChild(camera = document.createElement('a-entity'));
