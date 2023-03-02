@@ -8,6 +8,10 @@ import { parseToRgb, opacify } from 'polished';
 
 //
 
+// Hack to make aframe-extras gamepad controls (part of movement-controls) compatible with latest version of Three (imported by Aframe 1.4)
+// Until this fix is released: https://github.com/c-frame/aframe-extras/commit/51e9f4dce7e9de5e941fe20f558a1b388d1e80dd
+THREE && THREE.MathUtils && THREE.MathUtils.degToRad && (THREE.Math = { degToRad: THREE.MathUtils.degToRad });
+
 export default Kapsule({
 
   props: {
@@ -125,6 +129,7 @@ export default Kapsule({
     let cameraG;
     scene.appendChild(cameraG = document.createElement('a-entity'));
     cameraG.setAttribute('position', '0 0 300');
+    cameraG.setAttribute('movement-controls', 'controls: gamepad, touch; fly: true; speed: 7');
 
     let camera;
     cameraG.appendChild(camera = document.createElement('a-entity'));
