@@ -135,7 +135,7 @@ export default Kapsule({
     cameraG.appendChild(camera = document.createElement('a-entity'));
     camera.setAttribute('camera', '');
     camera.setAttribute('position', '0 0 0');
-    camera.setAttribute('look-controls', 'reverseMouseDrag: false; pointerLockEnabled: false');
+    camera.setAttribute('look-controls', 'pointerLockEnabled: false');
     camera.setAttribute('wasd-controls', 'fly: true; acceleration: 700');
 
 
@@ -175,7 +175,7 @@ export default Kapsule({
     ['left', 'right'].forEach(hand => {
       let laser;
       cameraG.appendChild(laser = document.createElement('a-entity'));
-      laser.setAttribute('laser-controls', `hand: ${hand}`);
+      laser.setAttribute('laser-controls', `hand: ${hand}; model: false;`); // Oculus touch offsets are slightly off
       laser.setAttribute('raycaster', 'objects: [forcegraph]; interval: 100; lineColor: steelblue; lineOpacity: 0.85');
       state.raycasterEls.push(laser);
     });
