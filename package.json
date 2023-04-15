@@ -9,6 +9,7 @@
   "module": "dist/3d-force-graph-vr.mjs",
   "types": "dist/3d-force-graph-vr.d.ts",
   "exports": {
+    "types": "./dist/3d-force-graph-vr.d.ts",
     "umd": "./dist/3d-force-graph-vr.min.js",
     "default": "./dist/3d-force-graph-vr.mjs"
   },
@@ -44,9 +45,9 @@
     "accessor-fn": "1",
     "aframe": "^1.4",
     "aframe-extras": "^6.1",
-    "aframe-forcegraph-component": "^3.0",
-    "kapsule": "^1.14",
-    "polished": "^4.2.2"
+    "aframe-forcegraph-component": "3",
+    "kapsule": "1",
+    "polished": "4"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
