@@ -43,25 +43,25 @@
   ],
   "dependencies": {
     "accessor-fn": "1",
-    "aframe": "^1.4",
+    "aframe": "^1.5",
     "aframe-extras": "^6.1",
     "aframe-forcegraph-component": "3",
     "kapsule": "1",
     "polished": "4"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.0",
-    "@babel/preset-env": "^7.22.20",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^25.0.4",
-    "@rollup/plugin-node-resolve": "^15.2.1",
-    "@rollup/plugin-terser": "^0.4.3",
-    "postcss": "^8.4.31",
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "postcss": "^8.4.35",
     "rimraf": "^5.0.5",
-    "rollup": "^3.29.4",
-    "rollup-plugin-dts": "^6.0.2",
+    "rollup": "^4.10.0",
+    "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-postcss": "^4.0.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=12"
