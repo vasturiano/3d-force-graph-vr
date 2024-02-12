@@ -44,7 +44,7 @@
   "dependencies": {
     "accessor-fn": "1",
     "aframe": "^1.5",
-    "aframe-extras": "^6.1",
+    "aframe-extras": "^7.2",
     "aframe-forcegraph-component": "3",
     "kapsule": "1",
     "polished": "4"

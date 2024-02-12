@@ -10,7 +10,6 @@ const { name, homepage, version, dependencies } = pkg;
 
 const umdConf = {
   globals: { three: 'THREE' }, // a-frame exposes three as global
-  strict: false, // a-frame 0.7 not 'strict' compatible
   format: 'umd',
   name: 'ForceGraphVR',
   banner: `// Version ${version} ${name} - ${homepage}`
@@ -18,7 +17,6 @@ const umdConf = {
 
 export default [
   {
-    external: ['three'],
     input: 'src/index.js',
     output: [
       {

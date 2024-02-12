@@ -1156,12 +1156,14 @@ acorn@^8.8.2:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.11.3.tgz#71e0b14e13a4ec160724b38fb7b0f233b1b81d7a"
   integrity sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==
 
-aframe-extras@^6.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/aframe-extras/-/aframe-extras-6.1.1.tgz#6f158b6c4da12e77d00fd0b97dfe1c72245327df"
-  integrity sha512-w3o3sKfQG+cwe1ZoKUxvMLehh0D/MlvFZeg2XuyIto+Nrs/kGLPcb/fsI5DXM4jociZ3wVQfqcA1BVF+0Nq45A==
+aframe-extras@^7.2:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/aframe-extras/-/aframe-extras-7.2.0.tgz#4778f12f7dd03d7a5bafa7479333bd8c78adc2c8"
+  integrity sha512-1LGWi55qgJiBP531m+MJomBAdRAVyNkCLAjtZH1TC+dkJxD0VbV6gZevc/30j3+053Wgptn5ZHSl0IdBafVPyA==
   dependencies:
-    three-pathfinding "^0.7.0"
+    nipplejs "^0.10.1"
+    three "0.159.0"
+    three-pathfinding "^1.1.0"
 
 aframe-forcegraph-component@3:
   version "3.0.8"
@@ -1648,7 +1650,7 @@ debug@^4.1.0, debug@^4.1.1, debug@^4.3.1:
   dependencies:
     ms "2.1.2"
 
-"debug@github:ngokevin/debug#noTimestamp":
+debug@ngokevin/debug#noTimestamp:
   version "2.2.0"
   resolved "https://codeload.github.com/ngokevin/debug/tar.gz/ef5f8e66d49ce8bc64c6f282c15f8b7164409e3a"
 
@@ -2257,6 +2259,11 @@ nice-color-palettes@^3.0.0:
     map-limit "0.0.1"
     minimist "^1.2.0"
     new-array "^1.0.0"
+
+nipplejs@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/nipplejs/-/nipplejs-0.10.1.tgz#64acbb71c5549bcbf96c587f806342e9e7da67f9"
+  integrity sha512-BuKBDfdd7BVK6E7sivHwrRPh9TETsHuHEwuT95nAjRz2uJu5roYngNs+BdRe8nYf8mP6OZ9aRqdgMlqVsDMRcw==
 
 node-releases@^2.0.14:
   version "2.0.14"
@@ -2921,6 +2928,7 @@ string-hash@^1.1.1:
   integrity sha512-kJUvRUFK49aub+a7T1nNE66EJbZBMnBgoC1UbCZ5n6bsZKBRga4KgBRTMn/pFkeCZSYtNeSyMxPDM0AXWELk2A==
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -2939,6 +2947,7 @@ string-width@^5.0.1, string-width@^5.1.2:
     strip-ansi "^7.0.1"
 
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+  name strip-ansi-cjs
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -3017,7 +3026,7 @@ terser@^5.17.4:
     commander "^2.20.0"
     source-map-support "~0.5.20"
 
-"three-bmfont-text@github:dmarcos/three-bmfont-text#eed4878795be9b3e38cf6aec6b903f56acd1f695":
+three-bmfont-text@dmarcos/three-bmfont-text#eed4878795be9b3e38cf6aec6b903f56acd1f695:
   version "3.0.0"
   resolved "https://codeload.github.com/dmarcos/three-bmfont-text/tar.gz/eed4878795be9b3e38cf6aec6b903f56acd1f695"
   dependencies:
@@ -3042,10 +3051,15 @@ three-forcegraph@1:
     ngraph.graph "20"
     tinycolor2 "1"
 
-three-pathfinding@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/three-pathfinding/-/three-pathfinding-0.7.0.tgz#bf64ec409bee6e7d8e19be96c7b40ebd7ef6f10d"
-  integrity sha512-UwWvzgio1UFe81n5jKHNzB4B+AG3wfZ54OKp7bTb1MHuC3cy6RTtr0dbbiPQQoqxzr+DRArR2DUwQSEknw5+nw==
+three-pathfinding@^1.1.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/three-pathfinding/-/three-pathfinding-1.2.0.tgz#83b936104e22bc23b34bcf9d15574bbba21257ae"
+  integrity sha512-TlIfy+mLOdP7OhQG4Mn1dNONYbhu2Xe+AD7jL8SbdKdAHxH/TF68svpk2c8UrSfR/3YWQ87Tq/lp5HQO/QuaMw==
+
+three@0.159.0:
+  version "0.159.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.159.0.tgz#6576b1210805b14f0765bac41fd0e4ec18e43b2e"
+  integrity sha512-eCmhlLGbBgucuo4VEA9IO3Qpc7dh8Bd4VKzr7WfW4+8hMcIfoAVi1ev0pJYN9PTTsCslbcKgBwr2wNZ1EvLInA==
 
 tinycolor2@1:
   version "1.6.0"
