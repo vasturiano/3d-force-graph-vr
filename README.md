@@ -149,7 +149,9 @@ myGraph(myDOMElement)
 
 ### Utility
 
-| <b>getGraphBbox</b>() | Returns the current bounding box of all the nodes in the graph, formatted as `{ x: [<num>, <num>], y: [<num>, <num>], z: [<num>, <num>] }`. ||
+| Method | Description |
+| --- | --- |
+| <b>getGraphBbox</b>([<i>nodeFilterFn</i>]) | Returns the current bounding box of the nodes in the graph, formatted as `{ x: [<num>, <num>], y: [<num>, <num>], z: [<num>, <num>] }`. If no nodes are found, returns `null`. Accepts an optional argument to define a custom node filter: `node => <boolean>`, which should return a truthy value if the node is to be included. This can be useful to calculate the bounding box of a portion of the graph. |
 
 ### Input JSON syntax
 ```json

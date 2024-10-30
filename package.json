@@ -50,18 +50,18 @@
     "polished": "4"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.9",
-    "@babel/preset-env": "^7.23.9",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
-    "postcss": "^8.4.35",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.10.0",
-    "rollup-plugin-dts": "^6.1.0",
+    "postcss": "^8.4.47",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.24.3",
+    "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-postcss": "^4.0.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.3"
   },
   "engines": {
     "node": ">=12"
