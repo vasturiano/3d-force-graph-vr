@@ -1,15 +1,15 @@
-import { ThreeForceGraphGeneric } from 'three-forcegraph';
+import { ThreeForceGraphGeneric, NodeObject, LinkObject } from 'three-forcegraph';
 
 export interface ConfigOptions {}
 
 type Accessor<In, Out> = Out | string | ((obj: In) => Out);
-type ObjAccessor<T> = Accessor<object, T>;
+type ObjAccessor<T, InT = object> = Accessor<InT, T>;
 
 // don't surface these internal props from inner ThreeForceGraph
 type ExcludedInnerProps = 'onLoading' | 'onFinishLoading' | 'onUpdate' | 'onFinishUpdate' | 'tickFrame' | 'd3AlphaTarget' | 'resetCountdown';
 
-export interface ForceGraphVRGenericInstance<ChainableInstance>
-    extends Omit<ThreeForceGraphGeneric<ChainableInstance>, ExcludedInnerProps> {
+export interface ForceGraphVRGenericInstance<ChainableInstance, N extends NodeObject = NodeObject, L extends LinkObject<N> = LinkObject<N>>
+    extends Omit<ThreeForceGraphGeneric<ChainableInstance, N, L>, ExcludedInnerProps> {
   (element: HTMLElement): ChainableInstance;
   _destructor(): void;
 
@@ -24,24 +24,24 @@ export interface ForceGraphVRGenericInstance<ChainableInstance>
   showNavInfo(enabled: boolean): ChainableInstance;
 
   // Labels
-  nodeLabel(): ObjAccessor<string>;
-  nodeLabel(textAccessor: ObjAccessor<string>): ChainableInstance;
-  nodeDesc(): ObjAccessor<string>;
-  nodeDesc(textAccessor: ObjAccessor<string>): ChainableInstance;
-  linkLabel(): ObjAccessor<string>;
-  linkLabel(textAccessor: ObjAccessor<string>): ChainableInstance;
-  linkDesc(): ObjAccessor<string>;
-  linkDesc(textAccessor: ObjAccessor<string>): ChainableInstance;
+  nodeLabel(): ObjAccessor<string, N>;
+  nodeLabel(textAccessor: ObjAccessor<string, N>): ChainableInstance;
+  nodeDesc(): ObjAccessor<string, N>;
+  nodeDesc(textAccessor: ObjAccessor<string, N>): ChainableInstance;
+  linkLabel(): ObjAccessor<string, L>;
+  linkLabel(textAccessor: ObjAccessor<string, L>): ChainableInstance;
+  linkDesc(): ObjAccessor<string, L>;
+  linkDesc(textAccessor: ObjAccessor<string, L>): ChainableInstance;
 
   // Interaction
-  onNodeHover(callback: (node: object | null, previousNode: object | null) => void): ChainableInstance;
-  onLinkHover(callback: (link: object | null, previousLink: object | null) => void): ChainableInstance;
-  onNodeClick(callback: (node: object) => void): ChainableInstance;
-  onLinkClick(callback: (link: object) => void): ChainableInstance;
+  onNodeHover(callback: (node: N | null, previousNode: N | null) => void): ChainableInstance;
+  onLinkHover(callback: (link: L | null, previousLink: L | null) => void): ChainableInstance;
+  onNodeClick(callback: (node: N) => void): ChainableInstance;
+  onLinkClick(callback: (link: L) => void): ChainableInstance;
 }
 
-export type ForceGraphVRInstance = ForceGraphVRGenericInstance<ForceGraphVRInstance>;
+export type ForceGraphVRInstance<NodeType = NodeObject, LinkType = LinkObject<NodeType>> = ForceGraphVRGenericInstance<ForceGraphVRInstance<NodeType, LinkType>, NodeType, LinkType>;
 
-declare function ForceGraphVR(configOptions?: ConfigOptions): ForceGraphVRInstance;
+declare function ForceGraphVR<NodeType = NodeObject, LinkType = LinkObject<NodeType>>(configOptions?: ConfigOptions): ForceGraphVRInstance<NodeType, LinkType>;
 
 export default ForceGraphVR;
