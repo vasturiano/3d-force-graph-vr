@@ -44,8 +44,7 @@ or using a *script* tag
 ```
 then
 ```js
-const myGraph = ForceGraphVR();
-myGraph(myDOMElement)
+const myGraph = new ForceGraphVR(myDOMElement)
   .graphData(myData);
 ```
 

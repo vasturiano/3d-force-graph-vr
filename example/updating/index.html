@@ -13,8 +13,7 @@
       nodes: [ {id: 0 } ],
       links: []
     };
-    const Graph = ForceGraphVR()
-      (document.getElementById("3d-graph"))
+    const Graph = new ForceGraphVR(document.getElementById("3d-graph"))
         .graphData(initData)
         .onNodeClick(removeNode);
 

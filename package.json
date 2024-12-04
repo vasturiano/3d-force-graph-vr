@@ -46,7 +46,7 @@
     "aframe": "^1.5",
     "aframe-extras": "^7.2",
     "aframe-forcegraph-component": "3",
-    "kapsule": "1",
+    "kapsule": "^1.16",
     "polished": "4"
   },
   "devDependencies": {
@@ -56,12 +56,12 @@
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
-    "postcss": "^8.4.47",
+    "postcss": "^8.4.49",
     "rimraf": "^6.0.1",
-    "rollup": "^4.24.3",
+    "rollup": "^4.28.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-postcss": "^4.0.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   },
   "engines": {
     "node": ">=12"
