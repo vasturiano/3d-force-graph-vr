@@ -8,9 +8,9 @@ type ObjAccessor<T, InT = object> = Accessor<InT, T>;
 // don't surface these internal props from inner ThreeForceGraph
 type ExcludedInnerProps = 'onLoading' | 'onFinishLoading' | 'onUpdate' | 'onFinishUpdate' | 'tickFrame' | 'd3AlphaTarget' | 'resetCountdown';
 
-export declare class ForceGraphVRGeneric<ChainableInstance, N extends NodeObject = NodeObject, L extends LinkObject<N> = LinkObject<N>>
-    extends Omit<ThreeForceGraphGeneric<ChainableInstance, N, L>, ExcludedInnerProps> {
-  constructor(element: HTMLElement, configOptions?: ConfigOptions);
+export interface ForceGraphVRGenericInstance<ChainableInstance, N extends NodeObject = NodeObject, L extends LinkObject<N> = LinkObject<N>>
+  extends Omit<ThreeForceGraphGeneric<ChainableInstance, N, L>, ExcludedInnerProps> {
+
   _destructor(): void;
 
   // Container layout
@@ -40,6 +40,11 @@ export declare class ForceGraphVRGeneric<ChainableInstance, N extends NodeObject
   onLinkClick(callback: (link: L) => void): ChainableInstance;
 }
 
-declare class ForceGraphVR<NodeType = NodeObject, LinkType = LinkObject<NodeType>> extends ForceGraphVRGeneric<ForceGraphVR<NodeType, LinkType>, NodeType, LinkType> {}
+export type ForceGraphVRInstance<NodeType extends NodeObject = NodeObject, LinkType extends LinkObject<NodeType> = LinkObject<NodeType>>
+    = ForceGraphVRGenericInstance<ForceGraphVRInstance<NodeType, LinkType>, NodeType, LinkType>;
+
+interface ForceGraphVR<NodeType extends NodeObject = NodeObject, LinkType extends LinkObject<NodeType> = LinkObject<NodeType>> {
+  new(element: HTMLElement, configOptions?: ConfigOptions): ForceGraphVRInstance<NodeType, LinkType>;
+}
 
 export default ForceGraphVR;
