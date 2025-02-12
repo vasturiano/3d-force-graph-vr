@@ -6,10 +6,10 @@ import terser from "@rollup/plugin-terser";
 import dts from 'rollup-plugin-dts';
 
 import pkg from './package.json' with { type: 'json' };
-const { name, homepage, version, dependencies } = pkg;
+const { name, homepage, version, dependencies, peerDependencies } = pkg;
 
 const umdConf = {
-  globals: { three: 'THREE' }, // a-frame exposes three as global
+  globals: { aframe: 'AFRAME', three: 'THREE' }, // a-frame exposes three as global
   format: 'umd',
   name: 'ForceGraphVR',
   banner: `// Version ${version} ${name} - ${homepage}`
@@ -17,6 +17,7 @@ const umdConf = {
 
 export default [
   {
+    external: ['three', 'aframe'],
     input: 'src/index.js',
     output: [
       {
@@ -47,7 +48,7 @@ export default [
         file: `dist/${name}.mjs`
       }
     ],
-    external: Object.keys(dependencies),
+    external: [...Object.keys(dependencies), ...Object.keys(peerDependencies)],
     plugins: [
       postCss(),
       babel()

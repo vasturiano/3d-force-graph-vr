@@ -48,6 +48,11 @@ const myGraph = new ForceGraphVR(myDOMElement)
   .graphData(myData);
 ```
 
+Make sure to load this script tag in your application, required for `A-frame` to function properly:
+```html
+<script src="//unpkg.com/aframe"></script>
+```
+
 ## API reference
 
 ### Data input
