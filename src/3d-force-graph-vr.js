@@ -1,4 +1,3 @@
-import 'aframe';
 import 'aframe-extras';
 import 'aframe-forcegraph-component';
 
