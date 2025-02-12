@@ -1021,11 +1021,10 @@ aframe-extras@^7.2:
     three-pathfinding "^1.3.0"
 
 aframe-forcegraph-component@3:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-3.2.0.tgz#0f6e27df1094fae141ccc3b8681a72525c90a1fd"
-  integrity sha512-SZZa57EmbXta2jQey7p7EN9++xMVOsR7h9IVbgHFX5FoczwX5m8f+xOUWvkEmlA9avPwgnxYG7mgoHbppzsd/g==
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/aframe-forcegraph-component/-/aframe-forcegraph-component-3.2.2.tgz#7382cd9b53d94de8afe2ad0869f17d023b5724ff"
+  integrity sha512-1pt8u1vSeMBz/fG6v1gLFXuhKp8mSY1qCILnrGtgOYYJjhi3viUaTdmMgLKggkgtomS+UUBJazRSnBuk5u/xhQ==
   dependencies:
-    three ">=0.118.3"
     three-forcegraph "1"
 
 ansi-regex@^5.0.1:
@@ -2420,11 +2419,6 @@ three-pathfinding@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/three-pathfinding/-/three-pathfinding-1.3.0.tgz#70fe3d1f9c7f3f1ced457ef1c45160dd63992c1c"
   integrity sha512-LKxMI3/YqdMYvt6AdE2vB6s5ueDFczt/DWoxhtPNgRsH6E0D8LMYQxz+eIrmKo0MQpDvMVzXYUMBk+b86+k97w==
-
-three@>=0.118.3:
-  version "0.173.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.173.0.tgz#e82989961cd2db05768540458c81b29f565be921"
-  integrity sha512-AUwVmViIEUgBwxJJ7stnF0NkPpZxx1aZ6WiAbQ/Qq61h6I9UR4grXtZDmO8mnlaNORhHnIBlXJ1uBxILEKuVyw==
 
 three@^0.164.0:
   version "0.164.1"
