@@ -40,7 +40,7 @@ import ForceGraphVR from '3d-force-graph-vr';
 ```
 or using a *script* tag
 ```html
-<script src="//unpkg.com/3d-force-graph-vr"></script>
+<script src="//cdn.jsdelivr.net/npm/3d-force-graph-vr"></script>
 ```
 then
 ```js
@@ -50,7 +50,7 @@ const myGraph = new ForceGraphVR(myDOMElement)
 
 Make sure to load this script tag in your application, required for `A-frame` to function properly:
 ```html
-<script src="//unpkg.com/aframe"></script>
+<script src="//cdn.jsdelivr.net/npm/aframe"></script>
 ```
 
 ## API reference
