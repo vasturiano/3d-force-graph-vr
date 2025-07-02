@@ -59,9 +59,11 @@ export default Kapsule({
     linkDirectionalArrowResolution: { default: 8 }, // how many slice segments in the arrow's conic circumference
     linkDirectionalParticles: { default: 0 }, // animate photons travelling in the link direction
     linkDirectionalParticleSpeed: { default: 0.01 }, // in link length ratio per frame
+    linkDirectionalParticleOffset: { default: 0 },
     linkDirectionalParticleWidth: { default: 0.5 },
     linkDirectionalParticleColor: {},
     linkDirectionalParticleResolution: { default: 4 }, // how many slice segments in the particle sphere's circumference
+    linkDirectionalParticleThreeObject: {},
     forceEngine: { default: 'd3' }, // d3 or ngraph
     d3AlphaMin: { default: 0 },
     d3AlphaDecay: { default: 0.0228 },
@@ -251,9 +253,11 @@ export default Kapsule({
       'linkDirectionalArrowResolution',
       'linkDirectionalParticles',
       'linkDirectionalParticleSpeed',
+      'linkDirectionalParticleOffset',
       'linkDirectionalParticleWidth',
       'linkDirectionalParticleColor',
       'linkDirectionalParticleResolution',
+      'linkDirectionalParticleThreeObject',
       'forceEngine',
       'd3AlphaMin',
       'd3AlphaDecay',
